@@ -17,9 +17,10 @@ void RRRTable::createTable(uint32_t b) {
 	class_t subtableZero;
 	subtableZero.push_back(elZero);
 	this->table_.push_back(subtableZero);
+	this->bitsForOffset = vector<uint32_t>(b + 1, 1);
 
 	// for all other popcount values generate appropriate table elements
-	for (int p = 1; p <= b; p++) {
+	for (uint32_t p = 1; p <= b; p++) {
 		class_t subtable;
 		uint32_t  v, initial;
 		v = initial = firstElement(p);
@@ -44,6 +45,8 @@ void RRRTable::createTable(uint32_t b) {
 		}
 
 		this->table_.push_back(subtable);
+		uint32_t numberOfBits = (uint32_t)ceil(log2(subtable.size()));
+		this->bitsForOffset[p] = numberOfBits == 0 ? 1 : numberOfBits;
 	}
 }
 
@@ -83,4 +86,12 @@ uint32_t RRRTable::getOffset(uint32_t classIndex, uint32_t block, uint32_t block
 
 uint32_t RRRTable::getClassSize(uint32_t class_) {
 	return table_[class_].size();
+}
+
+uint32_t RRRTable::getBitsForOffset(uint64_t class_) {
+	return this->bitsForOffset[(uint32_t)class_];
+}
+
+uint64_t RRRTable::getRankForBlockAtPosition(uint64_t class_, uint64_t offset_, uint32_t position_) {
+	return this->table_[(uint32_t)class_][(uint32_t)offset_].second[position_];
 }

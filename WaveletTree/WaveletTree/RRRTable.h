@@ -19,9 +19,12 @@ public:
 	uint32_t getClassSize(uint32_t class_);
 	table_t& getTable() { return table_; }
 	static uint32_t initialBlockLength;
+	uint32_t getBitsForOffset(uint64_t class_);
+	uint64_t getRankForBlockAtPosition(uint64_t class_, uint64_t offset_, uint32_t position_);
 
 private:
 	table_t table_;
+	vector<uint32_t> bitsForOffset;
 	RRRTable(){};
 	RRRTable(RRRTable const&);
 	void operator=(RRRTable const&);
