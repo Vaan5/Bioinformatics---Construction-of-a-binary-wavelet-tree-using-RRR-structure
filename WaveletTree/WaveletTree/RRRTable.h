@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <cstdint>
+#include <algorithm>
 
 using namespace std;
 
@@ -21,6 +22,8 @@ public:
 	static uint32_t initialBlockLength;
 	uint32_t getBitsForOffset(uint64_t class_);
 	uint64_t getRankForBlockAtPosition(uint64_t class_, uint64_t offset_, uint32_t position_);
+	uint64_t getIndexForRank(uint64_t class_, uint64_t offset_, uint32_t rank_);
+	uint64_t getIndexForRankZero(uint64_t class_, uint64_t offset_, uint32_t rank_, uint32_t blockSize_);
 
 private:
 	table_t table_;

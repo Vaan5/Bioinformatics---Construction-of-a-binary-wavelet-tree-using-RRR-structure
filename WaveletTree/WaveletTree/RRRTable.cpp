@@ -95,3 +95,28 @@ uint32_t RRRTable::getBitsForOffset(uint64_t class_) {
 uint64_t RRRTable::getRankForBlockAtPosition(uint64_t class_, uint64_t offset_, uint32_t position_) {
 	return this->table_[(uint32_t)class_][(uint32_t)offset_].second[position_];
 }
+
+uint64_t RRRTable::getIndexForRank(uint64_t class_, uint64_t offset_, uint32_t rank_) {
+	auto ranks = this->table_[(uint32_t)class_][(uint32_t)offset_].second;
+	return lower_bound(ranks.begin(), ranks.end(), rank_) - ranks.begin();
+}
+
+uint64_t RRRTable::getIndexForRankZero(uint64_t class_, uint64_t offset_, uint32_t rank_, uint32_t blockSize_) {
+	auto ranks = this->table_[(uint32_t)class_][(uint32_t)offset_].second;
+	vector<uint32_t>::iterator first = ranks.begin();
+	vector<uint32_t>::iterator last = ranks.end();
+	vector<uint32_t>::iterator it = ranks.begin();
+	iterator_traits<vector<uint32_t>::iterator>::difference_type count, step;
+	count = distance(first, last);
+	while (count>0)
+	{
+		it = first; step = count / 2; advance(it, step);
+
+		if ((it - first) - *it + 1 < rank_) {                 // or: if (comp(*it,val)), for version (2)
+			first = ++it;
+			count -= step + 1;
+		}
+		else count = step;
+	}
+	return first - ranks.begin();
+}

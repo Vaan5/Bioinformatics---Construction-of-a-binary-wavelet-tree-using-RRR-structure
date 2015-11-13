@@ -17,7 +17,8 @@ int main() {
 			cout << i << "-" << j << "-" << y;
 			for (unsigned int k = 0; k < el.second.size(); k++) {
 				cout << " " << el.second[k];
-			}
+	
+		}
 			cout << endl;
 		}
 	}
@@ -27,6 +28,7 @@ int main() {
 	cout << "Z" << endl;*/
 
 	RRR rrr(string("001010011010101101000001001010011011000101101101011"));
+//	RRR rrr(string("111010011010101101000001001010011011000101101101011"));
 	cout << "jkjk" << endl;
 
 	cout << rrr.rank1(29) << endl;
@@ -40,4 +42,25 @@ int main() {
 
 	cout << rrr.rank1(50) << endl;
 	cout << rrr.rank0(50) << endl;
+
+
+	cout << "KLKGADLKGLAK" << endl;
+	cout << rrr.select1(7) << endl;
+	cout << rrr.select1(8) << endl;
+	cout << rrr.select1(1) << endl;
+	cout << rrr.select1(2) << endl;
+	cout << rrr.select1(10) << endl;
+	cout << rrr.select1(11) << endl;
+	cout << rrr.select1(24) << endl;
+	cout << rrr.select1(23) << endl;
+	cout << rrr.select1(22) << endl;
+
+	cout << "KLKGADLKGLAK" << endl;
+	cout << rrr.select0(1) << endl;
+	cout << rrr.select0(2) << endl;
+	cout << rrr.select0(3) << endl;
+	cout << rrr.select0(4) << endl;
+	cout << rrr.select0(27) << endl;
+	cout << rrr.select0(8) << endl;
+
 }

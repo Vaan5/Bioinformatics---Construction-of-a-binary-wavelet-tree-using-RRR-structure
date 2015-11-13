@@ -191,3 +191,163 @@ uint64_t RRR::rank1(uint64_t index) {
 uint64_t RRR::rank0(uint64_t index) {
 	return index - this->rank1(index) + 1;
 }
+
+uint64_t RRR::select1(uint64_t count) {
+	//TODO izbaci select(0)
+
+	superBlock countBlock(count, 36);
+	vector<superBlock>::iterator supBlockIterator = lower_bound(this->superBlocks.begin(), this->superBlocks.end(), countBlock, RRR::compareSuperBlock);
+	superBlock supBlock = *(--supBlockIterator);
+	uint64_t superBlockIndex = supBlockIterator - this->superBlocks.begin();
+
+	// set rankSum to the rank contained in the current superblock
+	uint64_t rankSum = supBlock.first;
+
+	// used to know in which block we current are in order to add the current block rank to the rankSum
+	uint64_t currentBlockIndex = 0;
+	uint64_t currentIndex = supBlock.second;
+	uint64_t contentIndex = currentIndex / 64;
+	uint64_t currentIndexInContentElement = currentIndex % 64;
+	uint64_t currentContentElement = this->content[(uint32_t)contentIndex];
+	uint64_t mask = (((uint64_t)1) << this->bitsForClass) - 1;
+
+	// add the index of the first element in found superblock
+	uint64_t indexOfith1 = this->blocksPerSuperBlock * this->blockSize * superBlockIndex;
+
+	// sum up block ranks up to the ib-th block
+	while (rankSum < count) {
+		uint64_t tempRank = currentContentElement >> (64 - this->bitsForClass - currentIndexInContentElement);
+		uint64_t leftOverBits = currentIndexInContentElement + this->bitsForClass;
+		if (leftOverBits >= 64) {
+			// we have overflow
+			contentIndex++;
+			currentContentElement = this->content[(uint32_t)contentIndex];
+			currentIndexInContentElement = leftOverBits % 64;
+			tempRank = tempRank | (currentContentElement >> (64 - currentIndexInContentElement));
+		}
+		else {
+			currentIndexInContentElement += this->bitsForClass;
+		}
+		tempRank = tempRank & mask;
+		uint64_t tempRankSum = rankSum + tempRank;
+
+		uint32_t bitsForOffset = RRRTable::getInstance().getBitsForOffset(tempRank);
+
+		if (tempRankSum < count) {
+			rankSum = tempRankSum;
+		}
+		else {
+			uint64_t maskForOffset = (((uint64_t)1) << bitsForOffset) - 1;
+			uint64_t tempOffset = currentContentElement >> (64 - bitsForOffset - currentIndexInContentElement);
+			leftOverBits = currentIndexInContentElement + bitsForOffset;
+			if (leftOverBits >= 64) {
+				// we have overflow
+				contentIndex++;
+				currentContentElement = this->content[(uint32_t)contentIndex];
+				currentIndexInContentElement = leftOverBits % 64;
+				tempOffset = tempOffset | (currentContentElement >> (64 - currentIndexInContentElement));
+			}
+
+			tempOffset = tempOffset & maskForOffset;
+
+			indexOfith1 += RRRTable::getInstance().getIndexForRank(tempRank, tempOffset, count-rankSum);
+			// get out of while loop}
+			break;
+		}
+			currentIndexInContentElement += bitsForOffset;
+			if (currentIndexInContentElement >= 64) {
+				// we have overflow
+				contentIndex++;
+				currentContentElement = this->content[(uint32_t)contentIndex];
+				currentIndexInContentElement = currentIndexInContentElement % 64;
+			}
+		currentBlockIndex++;
+		indexOfith1 += this->blockSize;
+	}
+
+	return indexOfith1;
+}
+
+uint64_t RRR::select0(uint64_t count) {
+	//TODO izbaci select(0)
+
+	superBlock countBlock(count, 36);
+	vector<superBlock>::iterator supBlockIterator = lower_bound(this->superBlocks.begin(), this->superBlocks.end(), countBlock, RRR::compareSuperBlock);
+	superBlock supBlock = *(--supBlockIterator);
+	uint64_t superBlockIndex = supBlockIterator - this->superBlocks.begin();
+
+	// used to know in which block we current are in order to add the current block rank to the rankSum
+	uint64_t currentBlockIndex = 0;
+	uint64_t currentIndex = supBlock.second;
+	uint64_t contentIndex = currentIndex / 64;
+	uint64_t currentIndexInContentElement = currentIndex % 64;
+	uint64_t currentContentElement = this->content[(uint32_t)contentIndex];
+	uint64_t mask = (((uint64_t)1) << this->bitsForClass) - 1;
+
+	// add the index of the first element in found superblock
+	uint64_t indexOfith0 = this->blocksPerSuperBlock * this->blockSize * superBlockIndex;
+	// set rankSum to the rank contained in the current superblock
+	uint64_t rankSum = indexOfith0 - supBlock.first;
+
+	// sum up block ranks up to the ib-th block
+	while (rankSum < count) {
+		uint64_t tempRank = currentContentElement >> (64 - this->bitsForClass - currentIndexInContentElement);
+		uint64_t leftOverBits = currentIndexInContentElement + this->bitsForClass;
+		if (leftOverBits >= 64) {
+			// we have overflow
+			contentIndex++;
+			currentContentElement = this->content[(uint32_t)contentIndex];
+			currentIndexInContentElement = leftOverBits % 64;
+			tempRank = tempRank | (currentContentElement >> (64 - currentIndexInContentElement));
+		}
+		else {
+			currentIndexInContentElement += this->bitsForClass;
+		}
+		tempRank = tempRank & mask;
+		uint64_t tempRankSum = rankSum + this->blockSize - tempRank;
+
+		uint32_t bitsForOffset = RRRTable::getInstance().getBitsForOffset(tempRank);
+
+		if (tempRankSum < count) {
+			rankSum = tempRankSum;
+		}
+		else {
+			uint64_t maskForOffset = (((uint64_t)1) << bitsForOffset) - 1;
+			uint64_t tempOffset = currentContentElement >> (64 - bitsForOffset - currentIndexInContentElement);
+			leftOverBits = currentIndexInContentElement + bitsForOffset;
+			if (leftOverBits >= 64) {
+				// we have overflow
+				contentIndex++;
+				currentContentElement = this->content[(uint32_t)contentIndex];
+				currentIndexInContentElement = leftOverBits % 64;
+				tempOffset = tempOffset | (currentContentElement >> (64 - currentIndexInContentElement));
+			}
+
+			tempOffset = tempOffset & maskForOffset;
+
+			indexOfith0 += RRRTable::getInstance().getIndexForRankZero(tempRank, tempOffset, count - rankSum, this->blockSize);
+			// get out of while loop}
+			break;
+		}
+		currentIndexInContentElement += bitsForOffset;
+		if (currentIndexInContentElement >= 64) {
+			// we have overflow
+			contentIndex++;
+			currentContentElement = this->content[(uint32_t)contentIndex];
+			currentIndexInContentElement = currentIndexInContentElement % 64;
+		}
+		currentBlockIndex++;
+		indexOfith0 += this->blockSize;
+	}
+
+	return indexOfith0;
+}
+
+bool RRR::compareSuperBlock(superBlock a, superBlock b) {
+	return a.first < b.first;
+}
+
+bool RRR::compareSuperBlockZeroes(superBlock a, superBlock b) {
+	uint64_t superBlockLength = this->blocksPerSuperBlock * this->blockSize;
+	return (superBlockLength - a.first) < (superBlockLength - b.first);
+}
