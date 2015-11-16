@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 #include <cstdint>
+#include <string>
 #include "..\WaveletTree\RRR.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -14,9 +15,13 @@ namespace UnitTests
 
 		TEST_METHOD(Access)
 		{
-			RRR rrr(string("001010011010101101000001001010011011000101101101011"));
-			// change to access - TODO
-			Assert::AreEqual((uint64_t)14, rrr.select1(7), L"Select1 passed", LINE_INFO());
+			string testString("001010011010101101000001001010011011000101101101011");
+			RRR rrr(testString);
+			Assert::AreEqual(((uint8_t)0), rrr.access(0), L"Rank 12 passed", LINE_INFO());
+			for (unsigned int i = 0; i < testString.length(); i++) {
+				uint8_t compareValue = (uint8_t)(testString[i] - '0');
+				Assert::AreEqual(compareValue, rrr.access((uint64_t)i), L"Access passed", LINE_INFO());
+			}
 		}
 
 	};

@@ -343,6 +343,15 @@ uint64_t RRR::select0(uint64_t count) {
 	return indexOfith0;
 }
 
+uint8_t RRR::access(uint64_t index) {
+	if (index == 0) {
+		return this->rank1(index);
+	}
+
+	// get 1 or 0 in constant time by using rank
+	return this->rank1(index) - this->rank1(index - 1);
+}
+
 bool RRR::compareSuperBlock(superBlock a, superBlock b) {
 	return a.first < b.first;
 }

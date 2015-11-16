@@ -8,3 +8,4 @@
 /ConsoleApplication/Release
 /ipch
 *.opensdf
+/UnitTests/Debug

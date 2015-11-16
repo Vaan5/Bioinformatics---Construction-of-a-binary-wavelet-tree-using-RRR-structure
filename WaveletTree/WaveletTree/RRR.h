@@ -28,5 +28,5 @@ public:
 	uint64_t rank0(uint64_t index);
 	uint64_t select1(uint64_t count);
 	uint64_t select0(uint64_t count);
-	uint16_t access(uint64_t index);
+	uint8_t access(uint64_t index);
 };
