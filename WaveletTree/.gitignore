@@ -4,4 +4,7 @@
 /WaveletTree/Release
 /WaveletTree.v12.suo
 /WaveletTree.sdf
+/ConsoleApplication/Debug
+/ConsoleApplication/Release
+/ipch
 *.opensdf

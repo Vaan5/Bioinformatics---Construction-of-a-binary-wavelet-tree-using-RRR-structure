@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WaveletTree", "WaveletTree\WaveletTree.vcxproj", "{DFAE96C6-C177-4851-90B0-34B191BCD1D1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTests", "UnitTests\UnitTests.vcxproj", "{29B2867B-3F88-41B3-9DBD-689AD4CDEB8C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.vcxproj", "{4D8C3725-075E-4F4C-8195-6DDB85EA5FAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +19,14 @@ Global
 		{DFAE96C6-C177-4851-90B0-34B191BCD1D1}.Debug|Win32.Build.0 = Debug|Win32
 		{DFAE96C6-C177-4851-90B0-34B191BCD1D1}.Release|Win32.ActiveCfg = Release|Win32
 		{DFAE96C6-C177-4851-90B0-34B191BCD1D1}.Release|Win32.Build.0 = Release|Win32
+		{29B2867B-3F88-41B3-9DBD-689AD4CDEB8C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{29B2867B-3F88-41B3-9DBD-689AD4CDEB8C}.Debug|Win32.Build.0 = Debug|Win32
+		{29B2867B-3F88-41B3-9DBD-689AD4CDEB8C}.Release|Win32.ActiveCfg = Release|Win32
+		{29B2867B-3F88-41B3-9DBD-689AD4CDEB8C}.Release|Win32.Build.0 = Release|Win32
+		{4D8C3725-075E-4F4C-8195-6DDB85EA5FAA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4D8C3725-075E-4F4C-8195-6DDB85EA5FAA}.Debug|Win32.Build.0 = Debug|Win32
+		{4D8C3725-075E-4F4C-8195-6DDB85EA5FAA}.Release|Win32.ActiveCfg = Release|Win32
+		{4D8C3725-075E-4F4C-8195-6DDB85EA5FAA}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
