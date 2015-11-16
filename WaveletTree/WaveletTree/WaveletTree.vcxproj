@@ -80,11 +80,13 @@
   <ItemGroup>
     <ClCompile Include="RRR.cpp" />
     <ClCompile Include="RRRTable.cpp" />
+    <ClCompile Include="WaveletNode.cpp" />
     <ClCompile Include="WaveletTree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RRR.h" />
     <ClInclude Include="RRRTable.h" />
+    <ClInclude Include="WaveletNode.h" />
     <ClInclude Include="WaveletTree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
