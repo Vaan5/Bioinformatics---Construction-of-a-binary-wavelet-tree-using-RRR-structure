@@ -250,7 +250,7 @@ uint64_t RRR::select1(uint64_t count) {
 
 			tempOffset = tempOffset & maskForOffset;
 
-			indexOfith1 += RRRTable::getInstance().getIndexForRank(tempRank, tempOffset, count-rankSum);
+			indexOfith1 += RRRTable::getInstance().getIndexForRank(tempRank, tempOffset, (uint32_t)(count-rankSum));
 			// get out of while loop}
 			break;
 		}
@@ -325,7 +325,7 @@ uint64_t RRR::select0(uint64_t count) {
 
 			tempOffset = tempOffset & maskForOffset;
 
-			indexOfith0 += RRRTable::getInstance().getIndexForRankZero(tempRank, tempOffset, count - rankSum, this->blockSize);
+			indexOfith0 += RRRTable::getInstance().getIndexForRankZero(tempRank, tempOffset, (uint32_t)(count - rankSum), this->blockSize);
 			// get out of while loop}
 			break;
 		}
@@ -345,11 +345,11 @@ uint64_t RRR::select0(uint64_t count) {
 
 uint8_t RRR::access(uint64_t index) {
 	if (index == 0) {
-		return this->rank1(index);
+		return (uint8_t)this->rank1(index);
 	}
 
 	// get 1 or 0 in constant time by using rank
-	return this->rank1(index) - this->rank1(index - 1);
+	return (uint8_t)(this->rank1(index) - this->rank1(index - 1));
 }
 
 bool RRR::compareSuperBlock(superBlock a, superBlock b) {

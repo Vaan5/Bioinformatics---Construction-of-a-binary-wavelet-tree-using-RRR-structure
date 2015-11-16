@@ -63,7 +63,7 @@ uint32_t RRRTable::firstElement(uint32_t c) {
 uint32_t RRRTable::getOffset(uint32_t classIndex, uint32_t block, uint32_t blockLength) {
 	uint32_t blockOffset = initialBlockLength - blockLength;
 	class_t cls = table_[classIndex];
-	uint32_t upper = cls.size();
+	uint32_t upper = (uint32_t)cls.size();
 	uint32_t lower = 0;
 	uint32_t middle = (upper + lower) / 2;
 
@@ -85,7 +85,7 @@ uint32_t RRRTable::getOffset(uint32_t classIndex, uint32_t block, uint32_t block
 }
 
 uint32_t RRRTable::getClassSize(uint32_t class_) {
-	return table_[class_].size();
+	return (uint32_t)table_[class_].size();
 }
 
 uint32_t RRRTable::getBitsForOffset(uint64_t class_) {

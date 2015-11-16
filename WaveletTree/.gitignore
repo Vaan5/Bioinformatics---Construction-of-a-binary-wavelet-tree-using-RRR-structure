@@ -2,10 +2,15 @@
 /Release
 /WaveletTree/Debug
 /WaveletTree/Release
+/WaveletTree/x64
 /WaveletTree.v12.suo
 /WaveletTree.sdf
 /ConsoleApplication/Debug
 /ConsoleApplication/Release
+/ConsoleApplication/x64
 /ipch
 *.opensdf
 /UnitTests/Debug
+/UnitTests/Release
+/UnitTests/x64
+/x64
