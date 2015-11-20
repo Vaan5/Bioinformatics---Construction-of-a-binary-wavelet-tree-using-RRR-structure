@@ -5,14 +5,22 @@
 #include <string>
 #include <vector>
 #include <cstdint>
+#include "WaveletNode.h"
+#include "common.h"
+#include <stdexcept>
 
 using namespace std;
 
-typedef vector<uint16_t> alphabet;
-
 class WaveletTree {
 private:
+	alphabet alphabetIndices;
+	WaveletNode* root;
+	uint8_t alphabetSize;
 
 public:
+	WaveletNode* getRoot() const;
+	WaveletTree(string input);
+	virtual ~WaveletTree();
+	uint64_t rank(uint8_t character, uint64_t index);
 
 };

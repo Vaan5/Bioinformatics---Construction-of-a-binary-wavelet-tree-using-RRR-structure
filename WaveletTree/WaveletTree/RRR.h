@@ -18,10 +18,11 @@ private:
 	uint32_t superBlockSize;
 	uint32_t blocksPerSuperBlock;
 	uint32_t bitsForClass;
+	uint64_t maxIndexInLastContentElement;
 
-	void addBlock(uint32_t class_, uint64_t offset_);
 	static bool compareSuperBlock(superBlock a, superBlock b);
-	bool compareSuperBlockZeroes(superBlock a, superBlock b);
+	//bool compareSuperBlockZeroes(superBlock a, superBlock b);
+	vector<superBlock>::iterator getIteratorForSelectZero(uint64_t count);
 public:
 	RRR(string &bits);
 	uint64_t rank1(uint64_t index);

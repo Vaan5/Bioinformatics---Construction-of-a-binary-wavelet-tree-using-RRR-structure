@@ -43,5 +43,14 @@ namespace UnitTests
 			Assert::AreEqual((uint64_t)27, rrr.rank0(50), L"Rank 27 passed", LINE_INFO());
 		}
 
+		TEST_METHOD(RRRForInputOfLength1)
+		{
+			RRR rrr(string("0"));
+			Assert::AreEqual((uint64_t)1, rrr.rank0(0), L"Rank0", LINE_INFO());
+			Assert::AreEqual((uint64_t)0, rrr.rank1(0), L"Rank1", LINE_INFO());
+			Assert::AreEqual((uint64_t)0, rrr.select0(1), L"Select0", LINE_INFO());
+			Assert::AreEqual((uint64_t)1, rrr.select1(1), L"Select1", LINE_INFO());
+			Assert::AreEqual((uint8_t)0, rrr.access(0), L"Rank1", LINE_INFO());
+		}
 	};
 }

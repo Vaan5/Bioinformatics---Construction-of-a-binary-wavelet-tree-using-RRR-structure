@@ -1,19 +1,30 @@
 #include "WaveletNode.h"
 
+WaveletNode* WaveletNode::getLeftChild() const
+{
+	return leftChild;
+}
+
+WaveletNode* WaveletNode::getRightChild() const
+{
+	return rightChild;
+}
+
 WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, uint8_t end_, alphabet &alphabetIndices_) : parent(parent_), start(start_), end(end_) {
-	// substring from original string that contains only the 0 encoded content part
-	char* contentZeroes = (char*) malloc(sizeof(char) * content_.length());
-	// substring from original string that contains only the 1 encoded content part
-	char* contentOnes = (char*)malloc(sizeof(char) * content_.length());
 
 	// alphabet subrange division
 	// start and end are inclusive indices
 	// current node children will get alphabet intervals [start, threshold] and [threshold + 1, end]
-	uint8_t threshold = (uint8_t)(start/2. + end/2.);
+	this->threshold = (uint8_t)(start / 2. + end / 2.);
 
 	uint64_t zeroIndex = 0;
 	uint64_t oneIndex = 0;
 	uint64_t contentSize = content_.length();
+
+	// substring from original string that contains only the 0 encoded content part
+	char* contentZeroes = (char*)malloc(sizeof(char) * (contentSize + 1));
+	// substring from original string that contains only the 1 encoded content part
+	char* contentOnes = (char*)malloc(sizeof(char) * (contentSize + 1));
 
 	// create binary string for RRR input
 	for (uint64_t i = 0; i < contentSize; i++)
@@ -39,9 +50,9 @@ WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, 
 	contentZeroes[zeroIndex] = '\0';
 
 	// create children only if content has more then one character
-	if (this->start != this->end) {
-		this->leftChild = new WaveletNode(contentZeroes, this, this->start, threshold, alphabetIndices_);
-		this->rightChild = new WaveletNode(contentOnes, this, threshold + 1, this->end, alphabetIndices_);
+	if ((this->end - this->start) > 1) {
+		this->leftChild = new WaveletNode(contentZeroes, this, this->start, this->threshold, alphabetIndices_);
+		this->rightChild = new WaveletNode(contentOnes, this, this->threshold + 1, this->end, alphabetIndices_);
 	}
 
 	// free aliocated memory
@@ -54,4 +65,14 @@ WaveletNode::~WaveletNode() {
 	delete this->leftChild;
 	delete this->rightChild;
 	delete this->content;
+}
+
+RRR* WaveletNode::getContent() const
+{
+	return content;
+}
+
+uint8_t WaveletNode::getThreshold()
+{
+	return this->threshold;
 }
