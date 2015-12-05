@@ -19,15 +19,14 @@ int main() {
 	string input = "Hajro i Denis imaju 100 bodova!";
 	WaveletTree tree(input);
 
-	cout << tree.rank('a', 20) << endl;
-	cout << tree.rank('a', 29) << endl;
-	cout << tree.rank('a', 28) << endl;
 
-
-	cout << tree.rank('!', 30) << endl;
-	cout << tree.rank('!', 29) << endl;
-	cout << tree.rank('!', 5) << endl;
-	cout << tree.rank('!', 0) << endl;
+	try
+	{
+		cout << tree.access(800) << endl;
+	} catch (invalid_argument& e)
+	{
+		cout << e.what() << endl;
+	}
 
 	/////////////////////////////////////
 	// TODO

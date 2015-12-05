@@ -3,6 +3,7 @@
 RRR::RRR(string &bits) {
 	// number of bits in input string
 	uint64_t n = bits.size();
+	this->inputVectorLength = n;
 	if (n > 3) {
 		// bit number in each block
 		this->blockSize = (uint32_t)(floor(log2(bits.size())) / 2);
@@ -122,7 +123,18 @@ RRR::RRR(string &bits) {
 	this->maxIndexInLastContentElement = this->maxIndexInLastContentElement % 64;
 }
 
+uint64_t RRR::getInputVectorLength() const
+{
+	return this->inputVectorLength;
+}
+
 uint64_t RRR::rank1(uint64_t index) {
+	// index checks
+	if (index >= this->inputVectorLength)
+	{
+		throw invalid_argument("RRR > Rank index too large");
+	}
+
 	// calculate block index
 	uint64_t ib = index / this->blockSize;
 
@@ -197,12 +209,18 @@ uint64_t RRR::rank1(uint64_t index) {
 }
 
 uint64_t RRR::rank0(uint64_t index) {
-	return index - this->rank1(index) + 1;
+	return index + 1 - this->rank1(index);
 }
 
 uint64_t RRR::select1(uint64_t count) {
-	// TODO throw exception if number isnt in the RRR 
-	//TODO izbaci select(0)
+	if (count > this->inputVectorLength)
+	{
+		throw invalid_argument("RRR > Select count value too large");
+	}
+	if(count == 0)
+	{
+		throw invalid_argument("RRR > Select count value must be positive");
+	}
 
 	superBlock countBlock(count, 36);
 	vector<superBlock>::iterator supBlockIterator = lower_bound(this->superBlocks.begin(), this->superBlocks.end(), countBlock, RRR::compareSuperBlock);
@@ -275,11 +293,22 @@ uint64_t RRR::select1(uint64_t count) {
 		indexOfith1 += this->blockSize;
 	}
 
+	if (indexOfith1 == this->inputVectorLength)
+	{
+		throw invalid_argument("RRR > Select count-th 1 not found");
+	}
 	return indexOfith1;
 }
 
 uint64_t RRR::select0(uint64_t count) {
-	//TODO izbaci select(0)
+	if (count > this->inputVectorLength)
+	{
+		throw invalid_argument("RRR > Select count value too large");
+	}
+	if (count == 0)
+	{
+		throw invalid_argument("RRR > Select count value must be positive");
+	}
 
 	superBlock countBlock(count, 36);
 	//vector<superBlock>::iterator supBlockIterator = lower_bound(this->superBlocks.begin(), this->superBlocks.end(), countBlock, &RRR::compareSuperBlockZeroes);
@@ -352,10 +381,19 @@ uint64_t RRR::select0(uint64_t count) {
 		indexOfith0 += this->blockSize;
 	}
 
+	if (indexOfith0 == this->inputVectorLength)
+	{
+		throw invalid_argument("RRR > Select count-th 0 not found");
+	}
 	return indexOfith0;
 }
 
 uint8_t RRR::access(uint64_t index) {
+	if (index >= this->inputVectorLength)
+	{
+		throw invalid_argument("RRR > Access index too large");
+	}
+
 	if (index == 0) {
 		return (uint8_t)this->rank1(index);
 	}

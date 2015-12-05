@@ -19,12 +19,14 @@ private:
 	uint32_t blocksPerSuperBlock;
 	uint32_t bitsForClass;
 	uint64_t maxIndexInLastContentElement;
+	uint64_t inputVectorLength;
 
 	static bool compareSuperBlock(superBlock a, superBlock b);
 	//bool compareSuperBlockZeroes(superBlock a, superBlock b);
 	vector<superBlock>::iterator getIteratorForSelectZero(uint64_t count);
 public:
 	RRR(string &bits);
+	uint64_t getInputVectorLength() const;
 	uint64_t rank1(uint64_t index);
 	uint64_t rank0(uint64_t index);
 	uint64_t select1(uint64_t count);

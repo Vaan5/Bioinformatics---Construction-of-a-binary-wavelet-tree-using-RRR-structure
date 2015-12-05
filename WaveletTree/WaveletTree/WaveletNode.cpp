@@ -2,15 +2,20 @@
 
 WaveletNode* WaveletNode::getLeftChild() const
 {
-	return leftChild;
+	return this->leftChild;
 }
 
 WaveletNode* WaveletNode::getRightChild() const
 {
-	return rightChild;
+	return this->rightChild;
 }
 
-WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, uint8_t end_, alphabet &alphabetIndices_) : parent(parent_), start(start_), end(end_) {
+WaveletNode* WaveletNode::getParent() const
+{
+	return this->parent;
+}
+
+WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, uint8_t end_, alphabet &alphabetIndices_, bool isLeftChild_) : parent(parent_), start(start_), end(end_), isLeftChild(isLeftChild_) {
 
 	// alphabet subrange division
 	// start and end are inclusive indices
@@ -49,10 +54,10 @@ WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, 
 	contentOnes[oneIndex] = '\0';
 	contentZeroes[zeroIndex] = '\0';
 
-	// create children only if content has more then one character
+	// create children only if content has more than two characters
 	if ((this->end - this->start) > 1) {
-		this->leftChild = new WaveletNode(contentZeroes, this, this->start, this->threshold, alphabetIndices_);
-		this->rightChild = new WaveletNode(contentOnes, this, this->threshold + 1, this->end, alphabetIndices_);
+		this->leftChild = new WaveletNode(contentZeroes, this, this->start, this->threshold, alphabetIndices_, true);
+		this->rightChild = new WaveletNode(contentOnes, this, this->threshold + 1, this->end, alphabetIndices_, false);
 	}
 
 	// free aliocated memory
@@ -75,4 +80,19 @@ RRR* WaveletNode::getContent() const
 uint8_t WaveletNode::getThreshold()
 {
 	return this->threshold;
+}
+
+bool WaveletNode::getIsLeftChild()
+{
+	return this->isLeftChild;
+}
+
+uint8_t WaveletNode::getStart()
+{
+	return this->start;
+}
+
+uint8_t WaveletNode::getEnd()
+{
+	return this->end;
 }

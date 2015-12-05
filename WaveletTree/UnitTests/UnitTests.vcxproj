@@ -166,7 +166,10 @@
     <ClCompile Include="UnitTestRRRRank.cpp" />
     <ClCompile Include="UnitTestRRRGeneric.cpp" />
     <ClCompile Include="UnitTestRRRSelect.cpp" />
+    <ClCompile Include="UnitTestWaveletTreeAccess.cpp" />
     <ClCompile Include="UnitTestWaveletTreeRank.cpp" />
+    <ClCompile Include="UnitTestWaveletTreeSelect.cpp" />
+    <ClCompile Include="UnitTestWaveletTreeSmall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WaveletTree\WaveletTree.vcxproj">

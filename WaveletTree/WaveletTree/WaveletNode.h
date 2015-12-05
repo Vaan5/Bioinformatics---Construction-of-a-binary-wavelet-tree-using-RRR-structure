@@ -8,12 +8,16 @@
 
 class WaveletNode {
 public:
-	WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, uint8_t end_, alphabet &alphabetIndices_);
+	WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, uint8_t end_, alphabet &alphabetIndices_, bool isLeftChild_);
 	virtual ~WaveletNode();
 	WaveletNode* getLeftChild() const;
 	WaveletNode* getRightChild() const;
+	WaveletNode* getParent() const;
 	RRR* getContent() const;
 	uint8_t getThreshold();
+	bool getIsLeftChild();
+	uint8_t getStart();
+	uint8_t getEnd();
 
 private:
 	WaveletNode *parent;
@@ -22,5 +26,6 @@ private:
 	uint8_t start;
 	uint8_t end;
 	uint8_t threshold;
+	bool isLeftChild;
 	RRR *content;
 };

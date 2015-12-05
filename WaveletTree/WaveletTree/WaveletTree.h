@@ -7,13 +7,13 @@
 #include <cstdint>
 #include "WaveletNode.h"
 #include "common.h"
-#include <stdexcept>
 
 using namespace std;
 
 class WaveletTree {
 private:
 	alphabet alphabetIndices;
+	inverseAlphabet alphabetCharacters;
 	WaveletNode* root;
 	uint8_t alphabetSize;
 
@@ -22,5 +22,7 @@ public:
 	WaveletTree(string input);
 	virtual ~WaveletTree();
 	uint64_t rank(uint8_t character, uint64_t index);
+	uint64_t select(uint8_t character, uint64_t count);
+	uint8_t access(uint64_t index);
 
 };
