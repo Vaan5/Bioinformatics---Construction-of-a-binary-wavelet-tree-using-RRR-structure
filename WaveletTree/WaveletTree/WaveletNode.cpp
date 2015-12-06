@@ -57,7 +57,7 @@ WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, 
 	// create children only if content has more than two characters
 	if ((this->end - this->start) > 1) {
 		this->leftChild = new WaveletNode(contentZeroes, this, this->start, this->threshold, alphabetIndices_, true);
-		this->rightChild = new WaveletNode(contentOnes, this, this->threshold + 1, this->end, alphabetIndices_, false);
+		if (this->threshold + 1 != this->end) this->rightChild = new WaveletNode(contentOnes, this, this->threshold + 1, this->end, alphabetIndices_, false);
 	}
 
 	// free aliocated memory

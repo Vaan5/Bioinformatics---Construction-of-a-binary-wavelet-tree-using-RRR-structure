@@ -19,4 +19,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="HIV.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Camelpox.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Pig.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

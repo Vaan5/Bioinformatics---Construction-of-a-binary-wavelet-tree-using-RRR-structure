@@ -89,6 +89,9 @@ uint32_t RRRTable::getClassSize(uint32_t class_) {
 }
 
 uint32_t RRRTable::getBitsForOffset(uint64_t class_) {
+	// TODO -> rijesi problem sa izgradnjom RRR-a ili maskamama
+	if (class_ >= this->bitsForOffset.size())
+		int a = 22;
 	return this->bitsForOffset[(uint32_t)class_];
 }
 
@@ -112,7 +115,7 @@ uint64_t RRRTable::getIndexForRankZero(uint64_t class_, uint64_t offset_, uint32
 	{
 		it = first; step = count / 2; advance(it, step);
 
-		if ((it - first) - *it + 1 < rank_) {
+		if ((it - ranks.begin()) - *it + 1 < rank_) {
 			first = ++it;
 			count -= step + 1;
 		}
