@@ -20,6 +20,7 @@ private:
 	uint32_t bitsForClass;
 	uint64_t maxIndexInLastContentElement;
 	uint64_t inputVectorLength;
+	uint64_t bitShift(uint64_t leftSide, int32_t rightSide, bool isLeft = true);
 
 	static bool compareSuperBlock(superBlock a, superBlock b);
 	//bool compareSuperBlockZeroes(superBlock a, superBlock b);

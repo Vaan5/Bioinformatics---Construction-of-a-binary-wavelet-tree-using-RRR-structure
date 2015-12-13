@@ -167,6 +167,8 @@
     <ClCompile Include="UnitTestRRRGeneric.cpp" />
     <ClCompile Include="UnitTestRRRSelect.cpp" />
     <ClCompile Include="UnitTestWaveletTreeAccess.cpp" />
+    <ClCompile Include="UnitTestWaveletTreeCamelpoxRank.cpp" />
+    <ClCompile Include="UnitTestWaveletTreeHIVRank.cpp" />
     <ClCompile Include="UnitTestWaveletTreeRank.cpp" />
     <ClCompile Include="UnitTestWaveletTreeSelect.cpp" />
     <ClCompile Include="UnitTestWaveletTreeSmall.cpp" />

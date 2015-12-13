@@ -53,5 +53,11 @@
     <ClCompile Include="UnitTestWaveletTreeSmall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UnitTestWaveletTreeHIVRank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTestWaveletTreeCamelpoxRank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

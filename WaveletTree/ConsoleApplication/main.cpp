@@ -111,12 +111,12 @@ int main(int argc, char** argv) {
 			catch (invalid_argument& e) {
 				printf("%s\n", e.what());
 			}
-			catch (exception& e) {
-				printf("Exception: %s\n", e.what());
-			}
 			catch (const runtime_error& error)
 			{
 				cout << error.what() << endl;
+			}
+			catch (exception& e) {
+				printf("Exception: %s\n", e.what());
 			}
 		}
 	}

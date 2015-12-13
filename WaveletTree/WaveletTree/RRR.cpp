@@ -1,5 +1,18 @@
 #include "RRR.h"
 
+uint64_t RRR::bitShift(uint64_t leftSide, int32_t rightSide, bool isLeft) {
+	if (rightSide < 0) {
+		isLeft = !isLeft;
+		rightSide *= -1;
+	}
+
+	if (isLeft) {
+		return leftSide << rightSide;
+	}
+	
+	return leftSide >> rightSide;
+}
+
 RRR::RRR(string &bits) {
 	// number of bits in input string
 	uint64_t n = bits.size();
@@ -55,7 +68,7 @@ RRR::RRR(string &bits) {
 			blockIndex++;
 			uint32_t currentBlockSize = this->blockSize;
 			if (i + 1 == n && ((i + 1) % this->blockSize)) {
-				blockContent = blockContent << (this->blockSize - ((i + 1) % this->blockSize));
+				blockContent = this->bitShift(blockContent, ((int32_t)this->blockSize - ((i + 1) % this->blockSize)));
 			}
 			// blockSize used for bits alignment for table search
 			uint32_t blockOffset = RRRTable::getInstance().getOffset((uint32_t)blockRank, (uint32_t)blockContent, this->blockSize);
@@ -63,7 +76,7 @@ RRR::RRR(string &bits) {
 
 			superBlockOffset += (bitsForOffset + this->bitsForClass);
 
-			uint64_t blockRankCopy = blockRank << (64 - this->bitsForClass - alignValue);
+			uint64_t blockRankCopy = this->bitShift(blockRank, (64 - this->bitsForClass - alignValue));
 			for (uint32_t k = 0; k < this->bitsForClass; k++) {
 				currentContentElement = currentContentElement | (currentBitInContent & blockRankCopy);
 				currentBitInContent = currentBitInContent >> 1;
@@ -78,7 +91,7 @@ RRR::RRR(string &bits) {
 					alignValue = 0;
 					int overFlowBits = this->bitsForClass - k - 1;
 					if (overFlowBits > 0) {
-						blockRankCopy = blockRank << (64 - overFlowBits);
+						blockRankCopy = this->bitShift(blockRank, (64 - overFlowBits));
 						currentContentElement = currentContentElement | (currentBitInContent & blockRankCopy);
 						currentBitInContent = currentBitInContent >> 1;
 						//this->maxIndexInLastContentElement++;
@@ -94,14 +107,14 @@ RRR::RRR(string &bits) {
 				}
 			}
 
-			uint64_t blockOffsetCopy = ((uint64_t)blockOffset) << (64 - bitsForOffset - alignValue);
+			uint64_t blockOffsetCopy = this->bitShift(((uint64_t)blockOffset), 64 - (int)bitsForOffset - (int)alignValue);
 			for (uint32_t k = 0; k < bitsForOffset; k++) {
 				currentContentElement = currentContentElement | (currentBitInContent & blockOffsetCopy);
 				currentBitInContent = currentBitInContent >> 1;
 				this->maxIndexInLastContentElement++;
 				alignValue++;
 				//currentIndex++;
-				if (currentBitInContent == 0 || (i + 1) == n) {
+				if (currentBitInContent == 0 || ((i + 1) == n && k == bitsForOffset - 1)) {
 					// i need to add another uint64_t into the content vector
 					content.push_back(currentContentElement);
 					currentContentElement = 0;
@@ -109,7 +122,7 @@ RRR::RRR(string &bits) {
 					alignValue = 0;
 					int overflowExtraBits = bitsForOffset - k - 1;
 					if (overflowExtraBits > 0) {
-						blockOffsetCopy = blockOffset << (64 - overflowExtraBits);
+						blockOffsetCopy = this->bitShift(blockOffset, 64 - overflowExtraBits);
 						currentContentElement = currentContentElement | (currentBitInContent & blockOffsetCopy);
 						currentBitInContent = currentBitInContent >> 1;
 						//this->maxIndexInLastContentElement++;
@@ -174,7 +187,10 @@ uint64_t RRR::rank1(uint64_t index) {
 
 	// sum up block ranks up to the ib-th block
 	while (currentBlockIndex <= ib) {
-		uint64_t tempRank = currentContentElement >> (64 - this->bitsForClass - currentIndexInContentElement);
+		if (currentBlockIndex == 249) {
+			int a = 22;
+		}
+		uint64_t tempRank = this->bitShift(currentContentElement, (64 - this->bitsForClass - currentIndexInContentElement), false); // currentContentElement >> (64 - this->bitsForClass - currentIndexInContentElement);
 		uint64_t leftOverBits = currentIndexInContentElement + this->bitsForClass;
 		if (leftOverBits >= 64) {
 			// we have overflow
@@ -208,7 +224,7 @@ uint64_t RRR::rank1(uint64_t index) {
 		}
 		else {
 			uint64_t maskForOffset = (((uint64_t)1) << bitsForOffset) - 1;
-			uint64_t tempOffset = currentContentElement >> (64 - bitsForOffset - currentIndexInContentElement);
+			uint64_t tempOffset = this->bitShift(currentContentElement, (64 - bitsForOffset - currentIndexInContentElement), false); // currentContentElement >> (64 - bitsForOffset - currentIndexInContentElement);
 			leftOverBits = currentIndexInContentElement + bitsForOffset;
 			if (leftOverBits >= 64) {
 				// we have overflow
@@ -268,7 +284,7 @@ uint64_t RRR::select1(uint64_t count) {
 	// sum up block ranks up to the ib-th block
 	uint64_t lastContentIndex = this->content.size() - 1;
 	while (rankSum < count && (contentIndex < lastContentIndex || (contentIndex == lastContentIndex && currentIndexInContentElement < this->maxIndexInLastContentElement))) {
-		uint64_t tempRank = currentContentElement >> (64 - this->bitsForClass - currentIndexInContentElement);
+		uint64_t tempRank = this->bitShift(currentContentElement, (64 - this->bitsForClass - currentIndexInContentElement), false); // currentContentElement >> (64 - this->bitsForClass - currentIndexInContentElement);
 		uint64_t leftOverBits = currentIndexInContentElement + this->bitsForClass;
 		if (leftOverBits >= 64) {
 			// we have overflow
@@ -293,7 +309,7 @@ uint64_t RRR::select1(uint64_t count) {
 		}
 		else {
 			uint64_t maskForOffset = (((uint64_t)1) << bitsForOffset) - 1;
-			uint64_t tempOffset = currentContentElement >> (64 - bitsForOffset - currentIndexInContentElement);
+			uint64_t tempOffset = this->bitShift(currentContentElement, (64 - bitsForOffset - currentIndexInContentElement), false); // currentContentElement >> (64 - bitsForOffset - currentIndexInContentElement);
 			leftOverBits = currentIndexInContentElement + bitsForOffset;
 			if (leftOverBits >= 64) {
 				// we have overflow
@@ -323,7 +339,7 @@ uint64_t RRR::select1(uint64_t count) {
 		indexOfith1 += this->blockSize;
 	}
 
-	if (indexOfith1 == this->inputVectorLength)
+	if (indexOfith1 >= this->inputVectorLength)
 	{
 		throw invalid_argument("RRR > Select count-th 1 not found");
 	}
@@ -362,7 +378,7 @@ uint64_t RRR::select0(uint64_t count) {
 	// sum up block ranks up to the ib-th block
 	uint64_t lastContentIndex = this->content.size() - 1;
 	while (rankSum < count && (contentIndex < lastContentIndex || (contentIndex == lastContentIndex && currentIndexInContentElement < this->maxIndexInLastContentElement))) {
-		uint64_t tempRank = currentContentElement >> (64 - this->bitsForClass - currentIndexInContentElement);
+		uint64_t tempRank = this->bitShift(currentContentElement, (64 - this->bitsForClass - currentIndexInContentElement), false); //currentContentElement >> (64 - this->bitsForClass - currentIndexInContentElement);
 		uint64_t leftOverBits = currentIndexInContentElement + this->bitsForClass;
 		if (leftOverBits >= 64) {
 			// we have overflow
@@ -387,7 +403,7 @@ uint64_t RRR::select0(uint64_t count) {
 		}
 		else {
 			uint64_t maskForOffset = (((uint64_t)1) << bitsForOffset) - 1;
-			uint64_t tempOffset = currentContentElement >> (64 - bitsForOffset - currentIndexInContentElement);
+			uint64_t tempOffset = this->bitShift(currentContentElement, (64 - bitsForOffset - currentIndexInContentElement), false); // currentContentElement >> (64 - bitsForOffset - currentIndexInContentElement);
 			leftOverBits = currentIndexInContentElement + bitsForOffset;
 			if (leftOverBits >= 64) {
 				// we have overflow
@@ -417,7 +433,7 @@ uint64_t RRR::select0(uint64_t count) {
 		indexOfith0 += this->blockSize;
 	}
 
-	if (indexOfith0 == this->inputVectorLength)
+	if (indexOfith0 >= this->inputVectorLength)
 	{
 		throw invalid_argument("RRR > Select count-th 0 not found");
 	}
