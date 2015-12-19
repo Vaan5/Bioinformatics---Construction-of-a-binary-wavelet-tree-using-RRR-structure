@@ -29,5 +29,9 @@
     <Text Include="Pig.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="HajroDenis.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="config.txt" />
   </ItemGroup>
 </Project>

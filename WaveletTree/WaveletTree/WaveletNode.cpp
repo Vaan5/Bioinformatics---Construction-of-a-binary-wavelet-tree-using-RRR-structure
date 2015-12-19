@@ -15,8 +15,15 @@ WaveletNode* WaveletNode::getParent() const
 	return this->parent;
 }
 
-WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, uint8_t end_, alphabet &alphabetIndices_, bool isLeftChild_) : parent(parent_), start(start_), end(end_), isLeftChild(isLeftChild_) {
+WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, uint8_t end_, alphabet &alphabetIndices_, bool isLeftChild_, FILE* visualOutput) : parent(parent_), start(start_), end(end_), isLeftChild(isLeftChild_) {
+	this->id = idGenerator++;
 
+	if (visualOutput != NULL) {
+		if (this->parent != NULL) {
+			fprintf(visualOutput, "\t%d -> %d;\n", this->parent->id, this->id, content_.c_str());
+		}
+		fprintf(visualOutput, "\t%d [ label = \"%s\\n", this->id, content_.c_str());
+	}
 	// alphabet subrange division
 	// start and end are inclusive indices
 	// current node children will get alphabet intervals [start, threshold] and [threshold + 1, end]
@@ -47,6 +54,10 @@ WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, 
 		}
 	}
 
+	if (visualOutput != NULL) {
+		fprintf(visualOutput, "%s\"];\n", content_.c_str());
+	}
+
 	// create RRR
 	this->content = new RRR(content_);
 
@@ -56,8 +67,8 @@ WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, 
 
 	// create children only if content has more than two characters
 	if ((this->end - this->start) > 1) {
-		this->leftChild = new WaveletNode((string)contentZeroes, this, this->start, this->threshold, alphabetIndices_, true);
-		if (this->threshold + 1 != this->end) this->rightChild = new WaveletNode((string)contentOnes, this, this->threshold + 1, this->end, alphabetIndices_, false);
+		this->leftChild = new WaveletNode((string)contentZeroes, this, this->start, this->threshold, alphabetIndices_, true, visualOutput);
+		if (this->threshold + 1 != this->end) this->rightChild = new WaveletNode((string)contentOnes, this, this->threshold + 1, this->end, alphabetIndices_, false, visualOutput);
 	}
 
 	// free aliocated memory
@@ -96,3 +107,5 @@ uint8_t WaveletNode::getEnd()
 {
 	return this->end;
 }
+
+int WaveletNode::idGenerator = 0;

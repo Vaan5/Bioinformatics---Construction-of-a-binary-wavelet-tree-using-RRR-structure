@@ -5,7 +5,7 @@ WaveletNode* WaveletTree::getRoot() const
 	return root;
 }
 
-WaveletTree::WaveletTree(string content) {
+WaveletTree::WaveletTree(string content, FILE* visualOutput) {
 	this->alphabetIndices = alphabet(256, -1);
 	this->alphabetCharacters = inverseAlphabet(256, 0);
 	for (int i = 0; i < content.length(); i++) {
@@ -24,8 +24,18 @@ WaveletTree::WaveletTree(string content) {
 	}
 	this->alphabetSize = cumSum;
 
+	if (visualOutput != NULL) {
+		fprintf(visualOutput, "digraph bioinf { \n");
+		fprintf(visualOutput, "\tnode [shape = box, fontname=\"courier\"]; \n");
+	}
+
 	// build the binary tree
-	this->root = new WaveletNode(content, NULL, 0, this->alphabetSize - 1, this->alphabetIndices, true);
+	this->root = new WaveletNode(content, NULL, 0, this->alphabetSize - 1, this->alphabetIndices, true, visualOutput);
+
+	if (visualOutput != NULL) {
+		fprintf(visualOutput, "} \n");
+		fclose(visualOutput);
+	}
 }
 
 WaveletTree::~WaveletTree() {

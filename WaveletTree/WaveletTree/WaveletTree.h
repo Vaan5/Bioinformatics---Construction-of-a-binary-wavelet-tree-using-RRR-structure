@@ -19,7 +19,7 @@ private:
 
 public:
 	WaveletNode* getRoot() const;
-	WaveletTree(string input);
+	WaveletTree(string input, FILE* visualOutput = NULL);
 	virtual ~WaveletTree();
 	uint64_t rank(uint8_t character, uint64_t index);
 	uint64_t select(uint8_t character, uint64_t count);

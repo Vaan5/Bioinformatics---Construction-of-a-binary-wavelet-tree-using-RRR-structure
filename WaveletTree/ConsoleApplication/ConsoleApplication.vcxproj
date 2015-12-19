@@ -148,6 +148,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Camelpox.txt" />
+    <Text Include="config.txt" />
+    <Text Include="HajroDenis.txt" />
     <Text Include="HIV.txt" />
     <Text Include="Pig.txt" />
   </ItemGroup>

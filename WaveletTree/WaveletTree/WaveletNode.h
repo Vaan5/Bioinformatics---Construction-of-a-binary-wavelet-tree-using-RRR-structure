@@ -8,7 +8,7 @@
 
 class WaveletNode {
 public:
-	WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, uint8_t end_, alphabet &alphabetIndices_, bool isLeftChild_);
+	WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, uint8_t end_, alphabet &alphabetIndices_, bool isLeftChild_, FILE* visualOutput = NULL);
 	virtual ~WaveletNode();
 	WaveletNode* getLeftChild() const;
 	WaveletNode* getRightChild() const;
@@ -20,6 +20,8 @@ public:
 	uint8_t getEnd();
 
 private:
+	static int idGenerator;
+	int id;
 	WaveletNode *parent;
 	WaveletNode *leftChild;
 	WaveletNode *rightChild;
