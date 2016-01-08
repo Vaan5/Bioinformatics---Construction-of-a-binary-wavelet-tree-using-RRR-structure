@@ -4,6 +4,7 @@
 #include "../WaveletTree/WaveletTree.h"
 #include <cstdint>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <chrono>
 #include <ctime>
@@ -150,13 +151,20 @@ int main(int argc, char** argv) {
 	printf("Enter EXIT for application termination\n");
 	while (true) {
 		try {
-			string operation;
-			cin >> operation;
+			string inputLine;
+			getline(cin, inputLine);
+			int firstSpaceIndex = inputLine.find(" ");
+			int lastSpaceIndex = inputLine.rfind(" ");
+			string operation = inputLine.substr(0, firstSpaceIndex);
+			// cin >> operation;
 			if (operation == "rank") {
 				currentTimeVector = &rankTimes;
 				uint64_t index;
 				uint8_t character;
-				cin >> character >> index;
+				character = inputLine.substr(firstSpaceIndex + 1, lastSpaceIndex)[0];
+				istringstream bufferStream(inputLine.substr(lastSpaceIndex + 1));
+				bufferStream >> index;
+				//cin >> character >> index;
 
 				startTime = high_resolution_clock::now();
 				cout << tree.rank(character, index) << endl;
@@ -166,7 +174,10 @@ int main(int argc, char** argv) {
 				currentTimeVector = &selectTimes;
 				uint64_t count;
 				uint8_t character;
-				cin >> character >> count;
+				character = inputLine.substr(firstSpaceIndex + 1, lastSpaceIndex)[0];
+				istringstream bufferStream(inputLine.substr(lastSpaceIndex + 1));
+				bufferStream >> count;
+				//cin >> character >> count;
 
 				startTime = high_resolution_clock::now();
 				cout << tree.select(character, count) << endl;
@@ -175,7 +186,9 @@ int main(int argc, char** argv) {
 			else if (operation == "access") {
 				currentTimeVector = &accessTimes;
 				uint64_t index;
-				cin >> index;
+				istringstream bufferStream(inputLine.substr(firstSpaceIndex + 1));
+				bufferStream >> index;
+				//cin >> index;
 
 				startTime = high_resolution_clock::now();
 				cout << (char)tree.access(index) << endl;

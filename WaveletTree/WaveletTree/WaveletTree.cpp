@@ -1,13 +1,18 @@
 #include "WaveletTree.h"
 
-WaveletNode* WaveletTree::getRoot() const
-{
+// Returns root node of the wavelet tree
+WaveletNode* WaveletTree::getRoot() const {
 	return root;
 }
 
+// Creates a new wavelet tree
+//		input			input string for which the wavelet tree is constructed
+//		visualOutput	file handler used to generate graphviz data
 WaveletTree::WaveletTree(string content, FILE* visualOutput) {
 	this->alphabetIndices = alphabet(256, -1);
 	this->alphabetCharacters = inverseAlphabet(256, 0);
+
+	// Create symbol required mappings
 	for (int i = 0; i < content.length(); i++) {
 		if (this->alphabetIndices[content[i]] == -1) {
 			this->alphabetIndices[content[i]] = 1;
@@ -29,7 +34,7 @@ WaveletTree::WaveletTree(string content, FILE* visualOutput) {
 		fprintf(visualOutput, "\tnode [shape = box, fontname=\"courier\"]; \n");
 	}
 
-	// build the binary tree
+	// Build the binary tree
 	this->root = new WaveletNode(content, NULL, 0, this->alphabetSize - 1, this->alphabetIndices, true, visualOutput);
 
 	if (visualOutput != NULL) {
@@ -38,12 +43,17 @@ WaveletTree::WaveletTree(string content, FILE* visualOutput) {
 	}
 }
 
+// Destructor
 WaveletTree::~WaveletTree() {
 	delete this->root;
 }
 
-uint64_t WaveletTree::rank(uint8_t character, uint64_t index)
-{
+// Returns rank for the given character up to the given index (including)
+//		character		character for which rank is calculated
+//		index			index (starting from 0) up to which (included) rank is calculated
+// Throws invalid_argument exceptions if the stored string doesn't contain the requested 
+// character or if the index is larger then stored string length
+uint64_t WaveletTree::rank(uint8_t character, uint64_t index) {
 	WaveletNode* v = root;
 	uint64_t r = index;
 	int16_t characterIndex = this->alphabetIndices[character];
@@ -59,6 +69,7 @@ uint64_t WaveletTree::rank(uint8_t character, uint64_t index)
 	{
 		uint8_t threshold = v->getThreshold();
 
+		// Edge case -> index up to which is being search for in the RRR is decreased for child nodes
 		if (!isRoot)
 		{
 			r--;
@@ -68,6 +79,7 @@ uint64_t WaveletTree::rank(uint8_t character, uint64_t index)
 			isRoot = false;
 		}
 
+		// Depending on the current node alphabet coding look into the left or right child
 		if (characterIndex <= threshold)
 		{
 			r = v->getContent()->rank0(r);
@@ -79,13 +91,18 @@ uint64_t WaveletTree::rank(uint8_t character, uint64_t index)
 			v = v->getRightChild();
 		}
 
+		// Edge case - symbol not found in internal node
 		if (r == 0) return 0;
 	}
 	return r;
 }
 
-uint64_t WaveletTree::select(uint8_t character, uint64_t count)
-{
+// Returns the index of the count-th appearance of the given character
+//		character		character for which select is calculated
+//		count			number of searched for appearances
+// Throws invalid_argument exceptions if the stored string doesn't contain the requested 
+// character or if the count value is not positive or is larger then stored string length
+uint64_t WaveletTree::select(uint8_t character, uint64_t count) {
 	int16_t characterIndex = this->alphabetIndices[character];
 
 	if (characterIndex == -1)
@@ -96,9 +113,9 @@ uint64_t WaveletTree::select(uint8_t character, uint64_t count)
 	WaveletNode* v = NULL;
 	WaveletNode* temp = root;
 	uint64_t r = count;
+	// Go down the tree to the child containing the requested symbol
 	while (temp != NULL)
 	{
-		// first go to the child node
 		uint8_t threshold = temp->getThreshold();
 		v = temp;
 
@@ -112,8 +129,7 @@ uint64_t WaveletTree::select(uint8_t character, uint64_t count)
 		}
 	}
 	// v is leaf
-
-	// handle leaf; and the case when the tree has only one node
+	// Handle leaf and the edge case when the tree has only one node
 	uint8_t threshold = v->getThreshold();
 	if (characterIndex <= threshold)
 	{
@@ -124,7 +140,7 @@ uint64_t WaveletTree::select(uint8_t character, uint64_t count)
 		r = v->getContent()->select1(r);
 	}
 
-	// go up the tree
+	// Go up the tree and compute select index
 	while (v != root)
 	{
 		r++;
@@ -144,8 +160,9 @@ uint64_t WaveletTree::select(uint8_t character, uint64_t count)
 	return r;
 }
 
-uint8_t WaveletTree::access(uint64_t index)
-{
+// Returns character stored at the given index
+// Throws invalid_argument exception if index is too large
+uint8_t WaveletTree::access(uint64_t index) {
 	WaveletNode* v = root;
 	uint64_t r = index;
 
