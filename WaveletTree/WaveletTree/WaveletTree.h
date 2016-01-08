@@ -6,7 +6,7 @@
 #include <vector>
 #include <cstdint>
 #include "WaveletNode.h"
-#include "common.h"
+#include "Common.h"
 
 using namespace std;
 

@@ -149,7 +149,7 @@
     <ClCompile Include="WaveletTree.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="common.h" />
+    <ClInclude Include="Common.h" />
     <ClInclude Include="RRR.h" />
     <ClInclude Include="RRRTable.h" />
     <ClInclude Include="WaveletNode.h" />

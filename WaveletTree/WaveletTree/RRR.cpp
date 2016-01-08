@@ -346,6 +346,8 @@ uint64_t RRR::select1(uint64_t count) {
 	return indexOfith1;
 }
 
+// Returns the index of the count-th occurence of an unset bit(0) in the input bitvector
+// Throws invalid_argument exception if count value is too large or non-positive
 uint64_t RRR::select0(uint64_t count) {
 	if (count > this->inputVectorLength)
 	{
@@ -356,13 +358,13 @@ uint64_t RRR::select0(uint64_t count) {
 		throw invalid_argument("RRR > Select count value must be positive");
 	}
 
+	// Find the appropriate superblock
 	superBlock countBlock(count, 36);
-	//vector<superBlock>::iterator supBlockIterator = lower_bound(this->superBlocks.begin(), this->superBlocks.end(), countBlock, &RRR::compareSuperBlockZeroes);
 	vector<superBlock>::iterator supBlockIterator = this->getIteratorForSelectZero(count);
 	superBlock supBlock = *(--supBlockIterator);
 	uint64_t superBlockIndex = supBlockIterator - this->superBlocks.begin();
 
-	// used to know in which block we current are in order to add the current block rank to the rankSum
+	// Auxiliary data
 	uint64_t currentBlockIndex = 0;
 	uint64_t currentIndex = supBlock.second;
 	uint64_t contentIndex = currentIndex / 64;
@@ -370,18 +372,18 @@ uint64_t RRR::select0(uint64_t count) {
 	uint64_t currentContentElement = this->content[(uint32_t)contentIndex];
 	uint64_t mask = (((uint64_t)1) << this->bitsForClass) - 1;
 
-	// add the index of the first element in found superblock
+	// Add the index of the first element in found superblock
 	uint64_t indexOfith0 = this->blocksPerSuperBlock * this->blockSize * superBlockIndex;
-	// set rankSum to the rank contained in the current superblock
+	// Set rankSum to the rank contained in the current superblock
 	uint64_t rankSum = indexOfith0 - supBlock.first;
 
-	// sum up block ranks up to the ib-th block
+	// Sum up block ranks up to the ib-th block
 	uint64_t lastContentIndex = this->content.size() - 1;
 	while (rankSum < count && (contentIndex < lastContentIndex || (contentIndex == lastContentIndex && currentIndexInContentElement < this->maxIndexInLastContentElement))) {
-		uint64_t tempRank = this->bitShift(currentContentElement, (64 - this->bitsForClass - currentIndexInContentElement), false); //currentContentElement >> (64 - this->bitsForClass - currentIndexInContentElement);
+		uint64_t tempRank = this->bitShift(currentContentElement, (64 - this->bitsForClass - currentIndexInContentElement), false);
 		uint64_t leftOverBits = currentIndexInContentElement + this->bitsForClass;
 		if (leftOverBits >= 64) {
-			// we have overflow
+			// We have overflow
 			contentIndex++;
 			currentContentElement = this->content[(uint32_t)contentIndex];
 			currentIndexInContentElement = leftOverBits % 64;
@@ -440,6 +442,8 @@ uint64_t RRR::select0(uint64_t count) {
 	return indexOfith0;
 }
 
+// Returns the bit stored in the RRR at the given index
+// Throws invalid_argument exception if index is too large
 uint8_t RRR::access(uint64_t index) {
 	if (index >= this->inputVectorLength)
 	{
@@ -450,19 +454,18 @@ uint8_t RRR::access(uint64_t index) {
 		return (uint8_t)this->rank1(index);
 	}
 
-	// get 1 or 0 in constant time by using rank
+	// Get 1 or 0 in constant time by using rank
 	return (uint8_t)(this->rank1(index) - this->rank1(index - 1));
 }
 
+// Compares two superblock by their rank
+// Used for binary search when doing select1
 bool RRR::compareSuperBlock(superBlock a, superBlock b) {
 	return a.first < b.first;
 }
 
-/*bool RRR::compareSuperBlockZeroes(superBlock a, superBlock b) {
-	uint64_t superBlockLength = this->blocksPerSuperBlock * this->blockSize;
-	return (superBlockLength - a.first) < (superBlockLength - b.first);
-}*/
-
+// Returns iterator that points to the last superblock whose 0-rank is smaller or equal to count
+// Used for binary search when doing select0
 vector<superBlock>::iterator RRR::getIteratorForSelectZero(uint64_t count_) {
 	uint64_t superBlockLength = this->blocksPerSuperBlock * this->blockSize;
 	vector<superBlock>::iterator first = this->superBlocks.begin();
@@ -470,6 +473,8 @@ vector<superBlock>::iterator RRR::getIteratorForSelectZero(uint64_t count_) {
 	vector<superBlock>::iterator last = this->superBlocks.end();
 	vector<superBlock>::iterator it = this->superBlocks.begin();
 	iterator_traits<vector<uint32_t>::iterator>::difference_type count, step;
+
+	// Binary search
 	count = distance(first, last);
 	while (count > 0)
 	{
