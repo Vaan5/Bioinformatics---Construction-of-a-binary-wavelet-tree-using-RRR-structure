@@ -11,6 +11,9 @@
 using namespace std;
 
 // Class representing a wavelet tree that uses RRR
+// Example usage:
+//		WaveletTree tree("Example text", NULL);
+//		cout << tree.rank(e, 10);
 class WaveletTree {
 private:
 	// Vector encoding the symbol => index mapping
