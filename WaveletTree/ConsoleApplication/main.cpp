@@ -302,5 +302,6 @@ int main(int argc, char** argv) {
 		}
 	}
 
+	getAndPrintMemoryUsage(startMemory);
 	return 0;
 }
