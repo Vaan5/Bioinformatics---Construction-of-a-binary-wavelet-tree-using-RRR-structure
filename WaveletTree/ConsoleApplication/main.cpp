@@ -80,7 +80,11 @@ double getAndPrintMemoryUsage(double startMemory) {
 		currentMemory = physMemUsedByMe / (1024. * 1024);
 	#endif
 	if (startMemory > 0) {
-		cout << "Memory usage: " << currentMemory - startMemory << " MB" << endl;
+		cout << "Current memory usage: " << currentMemory << " MB" << endl;
+		cout << "Actual memory usage: " << currentMemory - startMemory << " MB" << endl;
+	}
+	else {
+		cout << "Memory before wavelet tree construction: " << currentMemory << " MB" << endl;
 	}
 	return currentMemory;
 }
@@ -92,15 +96,27 @@ void openImage(char* fileName) {
 	strcpy(pngName, fileName);
 	pngName[strlen(pngName) - 2] = 0;
 	strcat(pngName, "png");
-	sprintf(buff, "\"%s\" -Tpng \"%s\" -o \"%s\"", getConfigValue("DOT_PATH").c_str(), fileName, pngName);
+	#ifdef __linux__ 
+		sprintf(buff, "\"%s\" -Tpng \"%s\" -o \"%s\"", getConfigValue("DOT_PATH").c_str(), fileName, pngName);
+	#else
+		sprintf(buff, "\"\"%s\" -Tpng \"%s\" -o \"%s\"\"", getConfigValue("DOT_PATH").c_str(), fileName, pngName);
+	#endif
 	system(buff);
 	buff[0] = 0;
 	string imgViewer = getConfigValue("IMAGE_VIEWER");
 	if (imgViewer.length() == 0) {
-		sprintf(buff, "%s", pngName);
+		#ifdef __linux__ 
+			sprintf(buff, "%s", pngName);
+		#else
+			sprintf(buff, "\"%s\"", pngName);
+		#endif
 	}
 	else {
-		sprintf(buff, "\"%s\" \"%s\"", imgViewer.c_str(), pngName);
+		#ifdef __linux__ 
+			sprintf(buff, "\"%s\" \"%s\"", imgViewer.c_str(), pngName);
+		#else
+			sprintf(buff, "\"\"%s\" \"%s\"\"", imgViewer.c_str(), pngName);
+		#endif
 	}
 	system(buff);
 }

@@ -148,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Camelpox.txt" />
+    <Content Include="config.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Text Include="config.txt" />
     <Text Include="HajroDenis.txt" />
     <Text Include="HIV.txt" />
