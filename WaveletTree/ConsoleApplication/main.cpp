@@ -15,6 +15,7 @@
 using namespace std;
 using namespace std::chrono;
 
+// Graphviz configuration loader
 string getConfigValue(string key) {
 	ifstream inputStream("config.txt");
 	string line;
@@ -27,6 +28,7 @@ string getConfigValue(string key) {
 	return "";
 }
 
+// Print average times
 void printAverageTime(vector<uint64_t> &times, string operationName) {
 	uint64_t sum = 0;
 	for (int i = 0; i < times.size(); i++) {
@@ -39,6 +41,7 @@ void printAverageTime(vector<uint64_t> &times, string operationName) {
 	}
 }
 
+// Print memory usage
 void printMemoryUsage() {
 	PROCESS_MEMORY_COUNTERS pmc;
     GetProcessMemoryInfo(GetCurrentProcess(), &pmc, sizeof(pmc));
@@ -47,6 +50,7 @@ void printMemoryUsage() {
 	cout << "Memory usage: " << physMemUsedByMe / (1024.*1024) << " MB" << endl;
 }
 
+// Open graphviz generated image using configured image viewer
 void openImage(char* fileName) {
 	char buff[500] = { 0 };
 	char pngName[500] = { 0 };
@@ -86,19 +90,20 @@ int main(int argc, char** argv) {
 		if (s.find("t") < s.length()) timeMode = true;
 	}
 
-	// load FASTA file
+	// Load FASTA file
 	printf("Loading file %s\n", inputFile);
 
-	// get number of bytes to allocate string memory
+	// Get number of bytes to allocate string memory
 	FILE *handler = fopen(inputFile, "r");
 	if (handler == NULL) {
 		fprintf(stderr, "Couldn't open file %s\n", inputFile);
 		exit(1);
 	}
-	fseek(handler, 0, SEEK_END);   // non-portable
+	fseek(handler, 0, SEEK_END);
 	long size = ftell(handler);
 	fclose(handler);
 
+	// Read data
 	ifstream inputStream(inputFile, ios::in);
 	string line;
 	char* buffer = new char[size];
@@ -107,14 +112,14 @@ int main(int argc, char** argv) {
 		if (line[0] == '>' || line[0] == ';' || line.empty())
 			continue;
 		
-		// read line
+		// Read line
 		memcpy(buffer + index, line.c_str(), line.length());
 		index += line.length();
 	}
 	buffer[index] = '\0';
 	string input(buffer);
 
-	// deallocate buffer used for string construction
+	// Deallocate buffer used for string construction
 	delete[] buffer;
 	printf("File loaded\n");
 
@@ -146,7 +151,7 @@ int main(int argc, char** argv) {
 		openImage(fileName);
 	}
 
-	// interactive mode
+	// Interactive mode
 	printf("Input lines in format: operation params\nParameters are delimited by space\nPossible formats are:\n\trank character index\n\tselect character count\n\taccess index\n");
 	printf("Enter EXIT for application termination\n");
 	while (true) {
@@ -156,7 +161,7 @@ int main(int argc, char** argv) {
 			int firstSpaceIndex = inputLine.find(" ");
 			int lastSpaceIndex = inputLine.rfind(" ");
 			string operation = inputLine.substr(0, firstSpaceIndex);
-			// cin >> operation;
+
 			if (operation == "rank") {
 				currentTimeVector = &rankTimes;
 				uint64_t index;
@@ -164,7 +169,6 @@ int main(int argc, char** argv) {
 				character = inputLine.substr(firstSpaceIndex + 1, lastSpaceIndex)[0];
 				istringstream bufferStream(inputLine.substr(lastSpaceIndex + 1));
 				bufferStream >> index;
-				//cin >> character >> index;
 
 				startTime = high_resolution_clock::now();
 				cout << tree.rank(character, index) << endl;
@@ -177,7 +181,6 @@ int main(int argc, char** argv) {
 				character = inputLine.substr(firstSpaceIndex + 1, lastSpaceIndex)[0];
 				istringstream bufferStream(inputLine.substr(lastSpaceIndex + 1));
 				bufferStream >> count;
-				//cin >> character >> count;
 
 				startTime = high_resolution_clock::now();
 				cout << tree.select(character, count) << endl;
@@ -188,7 +191,6 @@ int main(int argc, char** argv) {
 				uint64_t index;
 				istringstream bufferStream(inputLine.substr(firstSpaceIndex + 1));
 				bufferStream >> index;
-				//cin >> index;
 
 				startTime = high_resolution_clock::now();
 				cout << (char)tree.access(index) << endl;
@@ -211,6 +213,7 @@ int main(int argc, char** argv) {
 				printf("Invalid operation\n");
 				continue;
 			}
+
 			duration = duration_cast<microseconds>(endTime - startTime).count();
 			(*currentTimeVector).push_back(duration);
 			if (!timeMode) {
@@ -218,14 +221,13 @@ int main(int argc, char** argv) {
 			}
 		}
 		catch (invalid_argument& e) {
-			printf("%s\n", e.what());
+			cout << e.what() << endl;
 		}
-		catch (const runtime_error& error)
-		{
-			cout << error.what() << endl;
+		catch (const runtime_error& e) {
+			cout << e.what() << endl;
 		}
 		catch (exception& e) {
-			printf("Exception: %s\n", e.what());
+			cout << e.what() << endl;
 		}
 	}
 

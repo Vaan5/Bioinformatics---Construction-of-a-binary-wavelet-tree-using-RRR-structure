@@ -160,8 +160,7 @@ uint64_t RRRTable::getIndexForRankZero(uint64_t class_, uint64_t offset_, uint32
 	// Binary search to find the appropriate index
 	// We use our implementation because the needed data structure is not stored explicitly in this object
 	count = distance(first, last);
-	while (count>0)
-	{
+	while (count>0) {
 		it = first; step = count / 2; advance(it, step);
 
 		if ((it - ranks.begin()) - *it + 1 < rank_) {

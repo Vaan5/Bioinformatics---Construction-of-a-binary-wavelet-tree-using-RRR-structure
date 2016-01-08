@@ -47,8 +47,7 @@ WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, 
 	char* contentOnes = (char*)malloc(sizeof(char) * (contentSize + 1));
 
 	// Create binary string for RRR input
-	for (uint64_t i = 0; i < contentSize; i++)
-	{
+	for (uint64_t i = 0; i < contentSize; i++) {
 		char c = content_[i];
 		if (alphabetIndices_[c] <= threshold) {
 			contentZeroes[zeroIndex] = c;

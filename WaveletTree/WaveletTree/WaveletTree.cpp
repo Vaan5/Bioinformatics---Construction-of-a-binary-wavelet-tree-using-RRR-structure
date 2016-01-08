@@ -58,35 +58,29 @@ uint64_t WaveletTree::rank(uint8_t character, uint64_t index) {
 	uint64_t r = index;
 	int16_t characterIndex = this->alphabetIndices[character];
 
-	if (characterIndex == -1)
-	{
+	if (characterIndex == -1) {
 		throw invalid_argument("Stored string doesn't contain the requested character...");
 	}
 
 	bool isRoot = true;
 
-	while (v != NULL)
-	{
+	while (v != NULL) {
 		uint8_t threshold = v->getThreshold();
 
 		// Edge case -> index up to which is being search for in the RRR is decreased for child nodes
-		if (!isRoot)
-		{
+		if (!isRoot) {
 			r--;
 		}
-		else
-		{
+		else {
 			isRoot = false;
 		}
 
 		// Depending on the current node alphabet coding look into the left or right child
-		if (characterIndex <= threshold)
-		{
+		if (characterIndex <= threshold) {
 			r = v->getContent()->rank0(r);
 			v = v->getLeftChild();
 		}
-		else
-		{
+		else {
 			r = v->getContent()->rank1(r);
 			v = v->getRightChild();
 		}
@@ -105,8 +99,7 @@ uint64_t WaveletTree::rank(uint8_t character, uint64_t index) {
 uint64_t WaveletTree::select(uint8_t character, uint64_t count) {
 	int16_t characterIndex = this->alphabetIndices[character];
 
-	if (characterIndex == -1)
-	{
+	if (characterIndex == -1) {
 		throw invalid_argument("Stored string doesn't contain the requested character...");
 	}
 
@@ -114,43 +107,35 @@ uint64_t WaveletTree::select(uint8_t character, uint64_t count) {
 	WaveletNode* temp = root;
 	uint64_t r = count;
 	// Go down the tree to the child containing the requested symbol
-	while (temp != NULL)
-	{
+	while (temp != NULL) {
 		uint8_t threshold = temp->getThreshold();
 		v = temp;
 
-		if (characterIndex <= threshold)
-		{
+		if (characterIndex <= threshold) {
 			temp = temp->getLeftChild();
 		}
-		else
-		{
+		else {
 			temp = temp->getRightChild();
 		}
 	}
 	// v is leaf
 	// Handle leaf and the edge case when the tree has only one node
 	uint8_t threshold = v->getThreshold();
-	if (characterIndex <= threshold)
-	{
+	if (characterIndex <= threshold) {
 		r = v->getContent()->select0(r);
 	}
-	else
-	{
+	else {
 		r = v->getContent()->select1(r);
 	}
 
 	// Go up the tree and compute select index
-	while (v != root)
-	{
+	while (v != root) {
 		r++;
 		WaveletNode* p = v->getParent();
-		if (v->getIsLeftChild())
-		{
+		if (v->getIsLeftChild()) {
 			r = p->getContent()->select0(r);
 		}
-		else
-		{
+		else {
 			r = p->getContent()->select1(r);
 		}
 
@@ -168,31 +153,24 @@ uint8_t WaveletTree::access(uint64_t index) {
 
 	bool isRoot = true;
 
-	while (v != NULL)
-	{
-		if (!isRoot)
-		{
+	while (v != NULL) {
+		if (!isRoot) {
 			r--;
 		}
-		else
-		{
+		else {
 			isRoot = false;
 		}
 
-		if (v->getContent()->access(r) == 0)
-		{
+		if (v->getContent()->access(r) == 0) {
 			r = v->getContent()->rank0(r);
-			if (v->getLeftChild() == NULL)
-			{
+			if (v->getLeftChild() == NULL) {
 				return this->alphabetCharacters[v->getStart()];
 			}
 			v = v->getLeftChild();
 		}
-		else
-		{
+		else {
 			r = v->getContent()->rank1(r);
-			if (v->getRightChild() == NULL)
-			{
+			if (v->getRightChild() == NULL) {
 				return this->alphabetCharacters[v->getEnd()];
 			}
 			v = v->getRightChild();

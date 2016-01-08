@@ -63,9 +63,11 @@ public:
 	uint64_t getInputVectorLength() const;
 
 	// Returns the number of times 1 appears in the interval [0, index] in the input bitvector
+	// Throws invalid_argument exception if index is too large
 	uint64_t rank1(uint64_t index);
 
 	// Returns the number of times 0 appears in the interval [0, index] in the input bitvector
+	// Throws invalid_argument exception if index is too large
 	uint64_t rank0(uint64_t index);
 
 	// Returns the index of the count-th occurence of a set bit(1) in the input bitvector
