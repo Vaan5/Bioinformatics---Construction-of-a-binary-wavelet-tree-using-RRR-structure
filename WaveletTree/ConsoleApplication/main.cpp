@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "..\WaveletTree\RRR.h"
+#include "../WaveletTree/RRR.h"
 #include "../WaveletTree/WaveletTree.h"
 #include <cstdint>
 #include <fstream>
@@ -9,8 +9,13 @@
 #include <chrono>
 #include <ctime>
 #include <cstring>
-#include "windows.h"
-#include "psapi.h"
+#ifdef __linux__ 
+	#include "stdlib.h"
+	#include "stdio.h"
+#else
+	#include "windows.h"
+	#include "psapi.h"
+#endif
 
 using namespace std;
 using namespace std::chrono;
@@ -37,17 +42,43 @@ void printAverageTime(vector<uint64_t> &times, string operationName) {
 
 	if (times.size() > 0) {
 		uint64_t averageSum = sum / times.size();
-		printf("Average %s time for %d queries: %d ms (%d us)\n", operationName.c_str(), times.size(), averageSum / 1000, averageSum);
+		printf("Average %s time for %lu queries: %lu ms (%lu us)\n", operationName.c_str(), times.size(), averageSum / 1000, averageSum);
 	}
+}
+
+// Used for parsing proces memory files in bio linux
+int parseLine(char* line) {
+	int i = strlen(line);
+	while (*line < '0' || *line > '9') line++;
+	line[i-3] = '\0';
+	i = atoi(line);
+	return i;
 }
 
 // Print memory usage
 double getAndPrintMemoryUsage(double startMemory) {
-	PROCESS_MEMORY_COUNTERS pmc;
-    GetProcessMemoryInfo(GetCurrentProcess(), &pmc, sizeof(pmc));
+	double currentMemory = 0;
+	#ifdef __linux__ 
+		FILE* file = fopen("/proc/self/status", "r");
+		int result = -1;
+		char line[128];
+	
 
-	SIZE_T physMemUsedByMe = pmc.WorkingSetSize;
-	double currentMemory = physMemUsedByMe / (1024. * 1024);
+		while (fgets(line, 128, file) != NULL){
+			if (strncmp(line, "VmRSS:", 6) == 0){
+				result = parseLine(line);
+				break;
+			}
+		}
+		fclose(file);
+		currentMemory = result / 1024.;
+	#else
+		PROCESS_MEMORY_COUNTERS pmc;
+		GetProcessMemoryInfo(GetCurrentProcess(), &pmc, sizeof(pmc));
+
+		SIZE_T physMemUsedByMe = pmc.WorkingSetSize;
+		currentMemory = physMemUsedByMe / (1024. * 1024);
+	#endif
 	if (startMemory > 0) {
 		cout << "Memory usage: " << currentMemory - startMemory << " MB" << endl;
 	}
@@ -61,15 +92,15 @@ void openImage(char* fileName) {
 	strcpy(pngName, fileName);
 	pngName[strlen(pngName) - 2] = 0;
 	strcat(pngName, "png");
-	sprintf(buff, "\"\"%s\" -Tpng \"%s\" > \"%s\"\"", getConfigValue("DOT_PATH").c_str(), fileName, pngName);
+	sprintf(buff, "\"%s\" -Tpng \"%s\" -o \"%s\"", getConfigValue("DOT_PATH").c_str(), fileName, pngName);
 	system(buff);
 	buff[0] = 0;
 	string imgViewer = getConfigValue("IMAGE_VIEWER");
 	if (imgViewer.length() == 0) {
-		sprintf(buff, "\"%s\"", pngName);
+		sprintf(buff, "%s", pngName);
 	}
 	else {
-		sprintf(buff, "\"\"%s\" \"%s\"\"", imgViewer.c_str(), fileName, pngName);
+		sprintf(buff, "\"%s\" \"%s\"", imgViewer.c_str(), pngName);
 	}
 	system(buff);
 }
@@ -143,8 +174,7 @@ int main(int argc, char** argv) {
 	FILE *visualOutput = NULL;
 	char fileName[200] = { 0 };
 	if (graphicsMode) {
-		time_t result = time(nullptr);
-		sprintf(fileName, "graph%d.gv", localtime(&result));
+		sprintf(fileName, "graph.gv");
 		visualOutput = fopen(fileName, "w");
 	}
 
@@ -157,7 +187,7 @@ int main(int argc, char** argv) {
 	getAndPrintMemoryUsage(startMemory);
 
 	auto duration = duration_cast<milliseconds>(endTime - startTime).count();
-	printf("Done building tree - %d ms\n", duration);
+	printf("Done building tree - %ld ms\n", duration);
 
 	vector<uint64_t> accessTimes;
 	vector<uint64_t> rankTimes;
@@ -242,7 +272,7 @@ int main(int argc, char** argv) {
 			duration = duration_cast<microseconds>(endTime - startTime).count();
 			(*currentTimeVector).push_back(duration);
 			if (!timeMode) {
-				printf("Elapsed time - %d ms (%d us)\n", duration / 1000, duration);
+				printf("Elapsed time - %ld ms (%ld us)\n", duration / 1000, duration);
 			}
 		}
 		catch (invalid_argument& e) {

@@ -28,7 +28,7 @@ WaveletNode::WaveletNode(string content_, WaveletNode *parent_, uint8_t start_, 
 
 	if (visualOutput != NULL) {
 		if (this->parent != NULL) {
-			fprintf(visualOutput, "\t%d -> %d;\n", this->parent->id, this->id, content_.c_str());
+			fprintf(visualOutput, "\t%d -> %d;\n", this->parent->id, this->id);
 		}
 		fprintf(visualOutput, "\t%d [ label = \"%s\\n", this->id, content_.c_str());
 	}
