@@ -154,6 +154,8 @@ int main(int argc, char** argv) {
 	// Interactive mode
 	printf("Input lines in format: operation params\nParameters are delimited by space\nPossible formats are:\n\trank character index\n\tselect character count\n\taccess index\n");
 	printf("Enter EXIT for application termination\n");
+	printf("Enter STAT for time statistics\n");
+	printf("Enter MEM for application memory usage\n");
 	while (true) {
 		try {
 			string inputLine;

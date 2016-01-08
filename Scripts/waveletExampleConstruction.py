@@ -1,5 +1,9 @@
+"""
+Prints wavelet tree content for simple string. Before running update all constant parameters
+"""
+
 t = "Hajro i Denis imaju 100 bodova!"
-abc = sorted(list(set("Hajro i Denis imaju 100 bodova!")))
+abc = sorted(list(set(t)))
 print(abc)
 
 

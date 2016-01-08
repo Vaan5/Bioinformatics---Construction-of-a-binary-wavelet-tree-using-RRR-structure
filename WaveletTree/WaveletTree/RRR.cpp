@@ -101,6 +101,7 @@ RRR::RRR(string &bits) {
 						blockRankCopy = this->bitShift(blockRank, (64 - overFlowBits));
 						currentContentElement = currentContentElement | (currentBitInContent & blockRankCopy);
 						currentBitInContent = currentBitInContent >> 1;
+						this->maxIndexInLastContentElement++;
 						alignValue++;
 						k++;
 					}
@@ -125,6 +126,7 @@ RRR::RRR(string &bits) {
 						blockOffsetCopy = this->bitShift(blockOffset, 64 - overflowExtraBits);
 						currentContentElement = currentContentElement | (currentBitInContent & blockOffsetCopy);
 						currentBitInContent = currentBitInContent >> 1;
+						this->maxIndexInLastContentElement++;
 						alignValue++;
 						k++;
 					}

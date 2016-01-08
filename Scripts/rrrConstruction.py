@@ -2,6 +2,10 @@ import sys
 import math
 from scipy.special import binom
 
+"""
+Generates RRR content in hexadecimal display. Before running update all constant parameters in this script!
+"""
+
 inputString = "11111111111111111111111111111111111111111111111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
 
 def element_0(c):
@@ -62,11 +66,9 @@ while True:
 	# add offset
 	index = 0
 	for x in gen_blocks(cls, blockSize):
-		# print str(bin(x))[2:].zfill(blockSize), str(block),  str(bin(x))[2:].zfill(blockSize) == str(block)
 		if str(block) == str(bin(x))[2:].zfill(blockSize):
 			finalString += str(bin(index))[2:].zfill(numberOfBits(blockSize, cls))
 		index+=1
-	#print finalString
 	currentIndex+=blockSize
 
 index = 0

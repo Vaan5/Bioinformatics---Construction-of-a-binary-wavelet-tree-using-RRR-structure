@@ -1,3 +1,7 @@
+"""
+Generates rank asserts for whole file. Before running update all constant parameters!
+"""
+
 with open("HIV.txt", "r") as f:
 	with open("testHIV.txt", "w") as out:
 		index = 0
