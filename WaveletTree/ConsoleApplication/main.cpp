@@ -42,12 +42,16 @@ void printAverageTime(vector<uint64_t> &times, string operationName) {
 }
 
 // Print memory usage
-void printMemoryUsage() {
+double getAndPrintMemoryUsage(double startMemory) {
 	PROCESS_MEMORY_COUNTERS pmc;
     GetProcessMemoryInfo(GetCurrentProcess(), &pmc, sizeof(pmc));
 
 	SIZE_T physMemUsedByMe = pmc.WorkingSetSize;
-	cout << "Memory usage: " << physMemUsedByMe / (1024.*1024) << " MB" << endl;
+	double currentMemory = physMemUsedByMe / (1024. * 1024);
+	if (startMemory > 0) {
+		cout << "Memory usage: " << currentMemory - startMemory << " MB" << endl;
+	}
+	return currentMemory;
 }
 
 // Open graphviz generated image using configured image viewer
@@ -73,10 +77,11 @@ void openImage(char* fileName) {
 int main(int argc, char** argv) {
 	// check arguments
 	if (argc > 4 || argc < 2) {
-		fprintf(stderr, "Invalid number of arguments. Usage example: %s file [gt] [ < config]\n", argv[0]);
+		fprintf(stderr, "Invalid number of arguments. Usage example: %s file [gt] [outputFile] [ < config]\n", argv[0]);
 		fprintf(stderr, "file -> FASTA input file\n");
 		fprintf(stderr, "g -> graphical display\n");
 		fprintf(stderr, "t -> time statistics\n");
+		fprintf(stderr, "outputFile -> file in which operation output is being written\n");
 		fprintf(stderr, "config -> file containing test operations\n");
 		exit(1);
 	}
@@ -89,6 +94,16 @@ int main(int argc, char** argv) {
 		if (s.find("g") < s.length()) graphicsMode = true;
 		if (s.find("t") < s.length()) timeMode = true;
 	}
+
+	// open file in which operation outputs will be written
+	std::streambuf* buf = cout.rdbuf();
+	if (argc == 4) {
+		ofstream output(argv[3]);
+		if (output.is_open()) {
+			buf = output.rdbuf();
+		}
+	}
+	ostream out(buf);
 
 	// Load FASTA file
 	printf("Loading file %s\n", inputFile);
@@ -133,11 +148,13 @@ int main(int argc, char** argv) {
 		visualOutput = fopen(fileName, "w");
 	}
 
+	double startMemory = getAndPrintMemoryUsage(0);
+
 	high_resolution_clock::time_point startTime = high_resolution_clock::now();
 	WaveletTree tree(input, visualOutput);
 	high_resolution_clock::time_point endTime = high_resolution_clock::now();
 
-	printMemoryUsage();
+	getAndPrintMemoryUsage(startMemory);
 
 	auto duration = duration_cast<milliseconds>(endTime - startTime).count();
 	printf("Done building tree - %d ms\n", duration);
@@ -172,9 +189,11 @@ int main(int argc, char** argv) {
 				istringstream bufferStream(inputLine.substr(lastSpaceIndex + 1));
 				bufferStream >> index;
 
+				uint64_t result;
 				startTime = high_resolution_clock::now();
-				cout << tree.rank(character, index) << endl;
+				result = tree.rank(character, index);
 				endTime = high_resolution_clock::now();
+				out << result << endl;
 			}
 			else if (operation == "select") {
 				currentTimeVector = &selectTimes;
@@ -184,9 +203,11 @@ int main(int argc, char** argv) {
 				istringstream bufferStream(inputLine.substr(lastSpaceIndex + 1));
 				bufferStream >> count;
 
+				uint64_t result;
 				startTime = high_resolution_clock::now();
-				cout << tree.select(character, count) << endl;
+				result = tree.select(character, count);
 				endTime = high_resolution_clock::now();
+				out << result << endl;
 			}
 			else if (operation == "access") {
 				currentTimeVector = &accessTimes;
@@ -194,15 +215,17 @@ int main(int argc, char** argv) {
 				istringstream bufferStream(inputLine.substr(firstSpaceIndex + 1));
 				bufferStream >> index;
 
+				uint8_t result;
 				startTime = high_resolution_clock::now();
-				cout << (char)tree.access(index) << endl;
+				result = tree.access(index);
 				endTime = high_resolution_clock::now();
+				out << (char)result << endl;
 			}
 			else if (operation == "EXIT") {
 				break;
 			}
 			else if (operation == "MEM") {
-				printMemoryUsage();
+				getAndPrintMemoryUsage(startMemory);
 				continue;
 			}
 			else if (operation == "STAT") {
@@ -233,6 +256,5 @@ int main(int argc, char** argv) {
 		}
 	}
 
-	printMemoryUsage();
 	return 0;
 }
