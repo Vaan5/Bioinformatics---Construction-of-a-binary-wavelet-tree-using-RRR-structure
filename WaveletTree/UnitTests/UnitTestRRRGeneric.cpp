@@ -14,7 +14,8 @@ namespace UnitTests
 
 		TEST_METHOD(Generic1)
 		{
-			RRR rrr(string("001010011010101101000001001010011011000101101101011"));
+			string input = "001010011010101101000001001010011011000101101101011";
+			RRR rrr(input);
 			Assert::AreEqual((uint64_t)14, rrr.select1(7), L"Select1 passed", LINE_INFO());
 			Assert::AreEqual((uint64_t)15, rrr.select1(8), L"Select1 passed", LINE_INFO());
 			Assert::AreEqual((uint64_t)2, rrr.select1(1), L"Select1 passed", LINE_INFO());
@@ -45,7 +46,8 @@ namespace UnitTests
 
 		TEST_METHOD(RRRForInputOfLength1)
 		{
-			RRR rrr(string("0"));
+			string input = "0";
+			RRR rrr(input);
 			Assert::AreEqual((uint64_t)1, rrr.rank0(0), L"Rank0", LINE_INFO());
 			Assert::AreEqual((uint64_t)0, rrr.rank1(0), L"Rank1", LINE_INFO());
 			Assert::AreEqual((uint64_t)0, rrr.select0(1), L"Select0", LINE_INFO());

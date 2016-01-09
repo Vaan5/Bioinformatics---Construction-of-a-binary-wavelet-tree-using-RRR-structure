@@ -15,7 +15,8 @@ namespace UnitTests
 
 		TEST_METHOD(Select1)
 		{
-			RRR rrr(string("001010011010101101000001001010011011000101101101011"));
+			string input = "001010011010101101000001001010011011000101101101011";
+			RRR rrr(input);
 			Assert::AreEqual((uint64_t)14, rrr.select1(7), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)15, rrr.select1(8), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)2, rrr.select1(1), L"Select", LINE_INFO());
@@ -29,7 +30,8 @@ namespace UnitTests
 
 		TEST_METHOD(Select0)
 		{
-			RRR rrr(string("001010011010101101000001001010011011000101101101011"));
+			string input = "001010011010101101000001001010011011000101101101011";
+			RRR rrr(input);
 			Assert::AreEqual((uint64_t)0, rrr.select0(1), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)1, rrr.select0(2), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)3, rrr.select0(3), L"Select", LINE_INFO());
@@ -40,98 +42,93 @@ namespace UnitTests
 
 		TEST_METHOD(Select1Small)
 		{
-			RRR rrr1(string("0"));
-			//Assert::AreEqual((uint64_t)1, rrr1.select1(1), L"Select", LINE_INFO());
-			RRR rrr2(string("00"));
-			//Assert::AreEqual((uint64_t)2, rrr2.select1(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)2, rrr2.select1(2), L"Select", LINE_INFO());
-			RRR rrr3(string("10"));
+			string input = "10";
+			RRR rrr3(input);
 			Assert::AreEqual((uint64_t)0, rrr3.select1(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)2, rrr3.select1(2), L"Select", LINE_INFO());
-			RRR rrr4(string("01"));
+
+			input = "01";
+			RRR rrr4(input);
 			Assert::AreEqual((uint64_t)1, rrr4.select1(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)2, rrr4.select1(2), L"Select", LINE_INFO());
-			RRR rrr5(string("11"));
+
+			input = "11";
+			RRR rrr5(input);
 			Assert::AreEqual((uint64_t)0, rrr5.select1(1), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)1, rrr5.select1(2), L"Select", LINE_INFO());
 		}
 
 		TEST_METHOD(Select0Small)
 		{
-			RRR rrr1(string("0"));
+			string input = "0";
+			RRR rrr1(input);
 			Assert::AreEqual((uint64_t)0, rrr1.select0(1), L"Select", LINE_INFO());
-			RRR rrr2(string("00"));
+
+			input = "00";
+			RRR rrr2(input);
 			Assert::AreEqual((uint64_t)0, rrr2.select0(1), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)1, rrr2.select0(2), L"Select", LINE_INFO());
-			RRR rrr3(string("10"));
+
+			input = "10";
+			RRR rrr3(input);
 			Assert::AreEqual((uint64_t)1, rrr3.select0(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)2, rrr3.select0(2), L"Select", LINE_INFO());
-			RRR rrr4(string("01"));
+
+			input = "01";
+			RRR rrr4(input);
 			Assert::AreEqual((uint64_t)0, rrr4.select0(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)2, rrr4.select0(2), L"Select", LINE_INFO());
-			RRR rrr5(string("11"));
-			//Assert::AreEqual((uint64_t)2, rrr5.select0(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)2, rrr5.select0(2), L"Select", LINE_INFO());
 		}
 
 		TEST_METHOD(Select1Middle)
 		{
-			RRR rrr1(string("000"));
-			//Assert::AreEqual((uint64_t)3, rrr1.select1(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr1.select1(2), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr1.select1(3), L"Select", LINE_INFO());
-			RRR rrr2(string("001"));
+			string input = "001";
+			RRR rrr2(input);
 			Assert::AreEqual((uint64_t)2, rrr2.select1(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr2.select1(2), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr2.select1(3), L"Select", LINE_INFO());
-			RRR rrr3(string("010"));
+			
+			input = "010";
+			RRR rrr3(input);
 			Assert::AreEqual((uint64_t)1, rrr3.select1(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr3.select1(2), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr3.select1(3), L"Select", LINE_INFO());
-			RRR rrr4(string("011"));
+			
+			input = "011";
+			RRR rrr4(input);
 			Assert::AreEqual((uint64_t)1, rrr4.select1(1), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)2, rrr4.select1(2), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr4.select1(3), L"Select", LINE_INFO());
-			RRR rrr5(string("111"));
+
+			input = "111";
+			RRR rrr5(input);
 			Assert::AreEqual((uint64_t)0, rrr5.select1(1), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)1, rrr5.select1(2), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)2, rrr5.select1(3), L"Select", LINE_INFO());
 
-			RRR rrr6(string("1011"));
+			input = "1011";
+			RRR rrr6(input);
 			Assert::AreEqual((uint64_t)0, rrr6.select1(1), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)2, rrr6.select1(2), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)3, rrr6.select1(3), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)4, rrr6.select1(4), L"Select", LINE_INFO());
 		}
 
 		TEST_METHOD(Select0Middle)
 		{
-			RRR rrr1(string("000"));
+			string input = "000";
+			RRR rrr1(input);
 			Assert::AreEqual((uint64_t)0, rrr1.select0(1), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)1, rrr1.select0(2), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)2, rrr1.select0(3), L"Select", LINE_INFO());
-			RRR rrr2(string("001"));
+
+			input = "001";
+			RRR rrr2(input);
 			Assert::AreEqual((uint64_t)0, rrr2.select0(1), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)1, rrr2.select0(2), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr2.select0(3), L"Select", LINE_INFO());
-			RRR rrr3(string("010"));
+
+			input = "010";
+			RRR rrr3(input);
 			Assert::AreEqual((uint64_t)0, rrr3.select0(1), L"Select", LINE_INFO());
 			Assert::AreEqual((uint64_t)2, rrr3.select0(2), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr3.select0(3), L"Select", LINE_INFO());
-			RRR rrr4(string("011"));
-			Assert::AreEqual((uint64_t)0, rrr4.select0(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr4.select0(2), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr4.select0(3), L"Select", LINE_INFO());
-			RRR rrr5(string("111"));
-			//Assert::AreEqual((uint64_t)3, rrr5.select0(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr5.select0(2), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)3, rrr5.select0(3), L"Select", LINE_INFO());
 
-			RRR rrr6(string("1011"));
+			input = "011";
+			RRR rrr4(input);
+			Assert::AreEqual((uint64_t)0, rrr4.select0(1), L"Select", LINE_INFO());
+
+			input = "1011";
+			RRR rrr6(input);
 			Assert::AreEqual((uint64_t)1, rrr6.select0(1), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)4, rrr6.select0(2), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)4, rrr6.select0(3), L"Select", LINE_INFO());
-			//Assert::AreEqual((uint64_t)4, rrr6.select0(4), L"Select", LINE_INFO());
 		}
 
 	};
