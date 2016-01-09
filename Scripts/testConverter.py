@@ -69,7 +69,9 @@ using namespace std;
 
 class Tests : public CxxTest::TestSuite {
 public:
-
+		void setUp() {
+			RRRTable::initialBlockLength = 0;
+		}
 	""")
 	for c in outputContent:
 		out.write(c + "\n\n")

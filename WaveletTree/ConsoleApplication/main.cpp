@@ -36,7 +36,7 @@ string getConfigValue(string key) {
 // Print average times
 void printAverageTime(vector<uint64_t> &times, string operationName) {
 	uint64_t sum = 0;
-	for (int i = 0; i < times.size(); i++) {
+	for (unsigned int i = 0; i < times.size(); i++) {
 		sum += times[i];
 	}
 

@@ -72,7 +72,6 @@ RRR::RRR(string &bits) {
 
 		if ((i != 0 && ((i + 1) % this->blockSize) == 0) || (i + 1 == this->blockSize) || (i + 1 == n)) {
 			blockIndex++;
-			uint32_t currentBlockSize = this->blockSize;
 			if (i + 1 == n && ((i + 1) % this->blockSize)) {
 				blockContent = this->bitShift(blockContent, ((int32_t)this->blockSize - ((i + 1) % this->blockSize)));
 			}
@@ -193,7 +192,7 @@ uint64_t RRR::rank1(uint64_t index) {
 			currentIndexInContentElement = leftOverBits % 64;
 			if (currentIndexInContentElement > 0) {
 				uint64_t tempMask = UINT64_MAX ^ (((uint64_t)1 << currentIndexInContentElement) - 1);
-				tempRank = tempRank & tempMask | (currentContentElement >> (64 - currentIndexInContentElement));
+				tempRank = (tempRank & tempMask) | (currentContentElement >> (64 - currentIndexInContentElement));
 			}
 		}
 		else {
@@ -228,7 +227,7 @@ uint64_t RRR::rank1(uint64_t index) {
 				currentIndexInContentElement = leftOverBits % 64;
 				if (currentIndexInContentElement > 0) {
 					uint64_t tempMask = UINT64_MAX ^ (((uint64_t)1 << currentIndexInContentElement) - 1);
-					tempOffset = tempOffset & tempMask | (currentContentElement >> (64 - currentIndexInContentElement));
+					tempOffset = (tempOffset & tempMask) | (currentContentElement >> (64 - currentIndexInContentElement));
 				}
 			}
 
@@ -296,7 +295,7 @@ uint64_t RRR::select1(uint64_t count) {
 			currentIndexInContentElement = leftOverBits % 64;
 			if (currentIndexInContentElement > 0) {
 				uint64_t tempMask = UINT64_MAX ^ (((uint64_t)1 << currentIndexInContentElement) - 1);
-				tempRank = tempRank & tempMask | (currentContentElement >> (64 - currentIndexInContentElement));
+				tempRank = (tempRank & tempMask) | (currentContentElement >> (64 - currentIndexInContentElement));
 			}
 		}
 		else {
@@ -323,7 +322,7 @@ uint64_t RRR::select1(uint64_t count) {
 				currentIndexInContentElement = leftOverBits % 64;
 				if (currentIndexInContentElement > 0) {
 					uint64_t tempMask = UINT64_MAX ^ (((uint64_t)1 << currentIndexInContentElement) - 1);
-					tempOffset = tempOffset & tempMask | (currentContentElement >> (64 - currentIndexInContentElement));
+					tempOffset = (tempOffset & tempMask) | (currentContentElement >> (64 - currentIndexInContentElement));
 				}
 			}
 
@@ -395,7 +394,7 @@ uint64_t RRR::select0(uint64_t count) {
 			currentIndexInContentElement = leftOverBits % 64;
 			if (currentIndexInContentElement > 0) {
 				uint64_t tempMask = UINT64_MAX ^ (((uint64_t)1 << currentIndexInContentElement) - 1);
-				tempRank = tempRank & tempMask | (currentContentElement >> (64 - currentIndexInContentElement));
+				tempRank = (tempRank & tempMask) | (currentContentElement >> (64 - currentIndexInContentElement));
 			}
 		}
 		else {
@@ -421,7 +420,7 @@ uint64_t RRR::select0(uint64_t count) {
 				currentIndexInContentElement = leftOverBits % 64;
 				if (currentIndexInContentElement > 0) {
 					uint64_t tempMask = UINT64_MAX ^ (((uint64_t)1 << currentIndexInContentElement) - 1);
-					tempOffset = tempOffset & tempMask | (currentContentElement >> (64 - currentIndexInContentElement));
+					tempOffset = (tempOffset & tempMask) | (currentContentElement >> (64 - currentIndexInContentElement));
 				}
 			}
 

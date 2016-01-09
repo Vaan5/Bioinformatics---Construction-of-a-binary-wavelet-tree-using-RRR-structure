@@ -13,14 +13,14 @@ WaveletTree::WaveletTree(string content, FILE* visualOutput) {
 	this->alphabetCharacters = inverseAlphabet(256, 0);
 
 	// Create symbol required mappings
-	for (int i = 0; i < content.length(); i++) {
+	for (unsigned int i = 0; i < content.length(); i++) {
 		if (this->alphabetIndices[content[i]] == -1) {
 			this->alphabetIndices[content[i]] = 1;
 		}
 	}
 	
 	int cumSum = 0;
-	for (int i = 0; i < this->alphabetIndices.size(); i++) {
+	for (unsigned int i = 0; i < this->alphabetIndices.size(); i++) {
 		if (this->alphabetIndices[i] == 1) {
 			this->alphabetIndices[i] = cumSum;
 			this->alphabetCharacters[cumSum] = i;
@@ -63,7 +63,6 @@ uint64_t WaveletTree::rank(uint8_t character, uint64_t index) {
 	}
 
 	bool isRoot = true;
-
 	while (v != NULL) {
 		uint8_t threshold = v->getThreshold();
 

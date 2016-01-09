@@ -19,6 +19,7 @@ void RRRTable::createTable(uint32_t b) {
 	// Set maximum table block length if this is the first call to createTable
 	if (RRRTable::initialBlockLength == 0) {
 		RRRTable::initialBlockLength = b;
+		this->table_.clear();
 	}
 
 	// Senerate all possible 0-1 permutations for all popcounts (ranks) and store them in the table

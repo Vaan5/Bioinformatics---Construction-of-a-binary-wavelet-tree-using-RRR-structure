@@ -58,13 +58,13 @@ private:
 	int id;
 
 	// Parent node
-	WaveletNode *parent;
+	WaveletNode *parent = NULL;
 
 	// Left child node
-	WaveletNode *leftChild;
+	WaveletNode *leftChild = NULL;
 
 	// Right child node
-	WaveletNode *rightChild;
+	WaveletNode *rightChild = NULL;
 
 	// First index of the node's alphabet subset
 	uint8_t start;
