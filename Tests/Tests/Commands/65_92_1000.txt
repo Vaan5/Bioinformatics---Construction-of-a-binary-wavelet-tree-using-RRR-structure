@@ -1,0 +1,184 @@
+MEM
+rank U 934
+access 86
+access 295
+select F 22
+select I 31
+select J 24
+select [ 17
+select D 18
+access 258
+access 56
+select O 18
+access 900
+select [ 5
+rank A 25
+rank T 876
+rank M 257
+access 736
+rank H 39
+rank P 843
+access 671
+access 986
+select R 3
+access 727
+access 227
+access 846
+select Z 4
+rank P 354
+access 467
+select V 1
+access 143
+access 754
+select O 21
+rank Z 689
+select X 7
+access 516
+rank N 335
+rank V 945
+access 457
+select U 10
+select Z 23
+rank R 397
+rank A 51
+select T 34
+access 416
+access 110
+rank Y 486
+rank C 821
+rank D 724
+select T 31
+select D 21
+access 24
+select W 24
+select Z 25
+rank M 87
+access 785
+select A 9
+access 998
+rank F 452
+rank D 100
+select G 3
+access 366
+access 776
+access 147
+select H 23
+select X 2
+rank X 445
+rank T 925
+select P 29
+select Z 11
+select C 10
+access 572
+rank Q 532
+rank [ 168
+select Q 26
+rank D 666
+rank D 288
+access 43
+select L 30
+access 805
+rank N 986
+rank P 579
+select R 21
+access 540
+rank Q 740
+access 287
+select B 8
+rank D 521
+rank P 372
+rank T 421
+select U 32
+access 828
+access 642
+select E 10
+select F 1
+rank H 507
+select A 5
+rank N 177
+access 552
+access 502
+select E 19
+access 415
+rank K 637
+select O 45
+access 867
+select F 1
+access 5
+rank W 140
+rank [ 561
+rank W 616
+rank E 597
+select T 9
+rank M 233
+select U 24
+access 602
+select L 15
+select H 11
+access 614
+select V 38
+access 884
+rank J 972
+select F 10
+rank B 911
+select D 4
+access 222
+select E 11
+rank S 287
+select H 23
+rank O 119
+rank [ 246
+rank T 673
+rank N 799
+access 241
+rank L 154
+select H 14
+rank W 79
+rank U 801
+access 579
+access 397
+rank Q 210
+access 928
+rank G 714
+access 335
+access 313
+rank O 7
+access 168
+select G 17
+select Z 16
+access 76
+rank K 769
+access 483
+select F 30
+access 183
+select X 16
+access 680
+access 112
+access 975
+rank E 880
+rank C 649
+select J 25
+select J 25
+select Y 23
+rank Q 860
+access 372
+access 925
+access 345
+select T 28
+select F 17
+rank G 206
+access 626
+access 433
+access 695
+access 207
+select E 25
+select H 9
+access 956
+access 708
+select U 18
+rank I 408
+rank C 309
+rank A 471
+STAT
+MEM
+EXIT

@@ -1,0 +1,10 @@
+python testCommandGenerator.py 100 ../Tests/Inputs/Bact1.txt ../Tests/Tests/Commands/Bact1.txt ../Tests/Tests/Results/Bact1.txt
+python testCommandGenerator.py 200 ../Tests/Inputs/Bact2.txt ../Tests/Tests/Commands/Bact2.txt ../Tests/Tests/Results/Bact2.txt
+python testCommandGenerator.py 50 ../Tests/Inputs/Camelpox.txt ../Tests/Tests/Commands/Camelpox.txt ../Tests/Tests/Results/Camelpox.txt
+python testCommandGenerator.py 10 ../Tests/Inputs/Coli.txt ../Tests/Tests/Commands/Coli.txt ../Tests/Tests/Results/Coli.txt
+python testCommandGenerator.py 10 ../Tests/Inputs/Flu.txt ../Tests/Tests/Commands/Flu.txt ../Tests/Tests/Results/Flu.txt
+python testCommandGenerator.py 3 ../Tests/Inputs/HajroDenis.txt ../Tests/Tests/Commands/HajroDenis.txt ../Tests/Tests/Results/HajroDenis.txt
+python testCommandGenerator.py 5 ../Tests/Inputs/HIV.txt ../Tests/Tests/Commands/HIV.txt ../Tests/Tests/Results/HIV.txt
+python testCommandGenerator.py 10000 ../Tests/Inputs/Human200.txt ../Tests/Tests/Commands/Human200.txt ../Tests/Tests/Results/Human200.txt
+python testCommandGenerator.py 5000 ../Tests/Inputs/HumanDNA.txt ../Tests/Tests/Commands/HumanDNA.txt ../Tests/Tests/Results/HumanDNA.txt
+python testCommandGenerator.py 100 ../Tests/Inputs/Pig.txt ../Tests/Tests/Commands/Pig.txt ../Tests/Tests/Results/Pig.txt

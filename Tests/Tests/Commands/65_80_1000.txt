@@ -1,0 +1,180 @@
+MEM
+access 861
+select I 26
+select C 58
+access 247
+rank A 879
+access 187
+select I 6
+select N 6
+access 536
+rank E 164
+access 612
+select C 53
+rank C 563
+access 768
+access 689
+access 198
+access 77
+access 890
+select K 40
+rank N 778
+rank J 225
+access 840
+access 125
+rank C 190
+access 457
+rank M 666
+rank I 6
+select G 43
+select B 6
+rank O 648
+rank J 369
+access 135
+select A 7
+rank O 599
+select M 16
+access 796
+access 492
+access 447
+access 478
+access 85
+rank B 999
+rank J 280
+access 876
+select D 1
+access 409
+select J 51
+access 904
+rank E 631
+rank K 312
+rank E 921
+access 105
+select C 56
+rank G 682
+rank K 355
+rank J 55
+access 816
+select E 47
+select E 49
+select L 16
+select C 15
+rank N 959
+rank M 430
+select J 22
+rank D 488
+access 352
+access 154
+rank C 701
+access 41
+access 753
+select I 58
+select O 27
+rank H 207
+select E 32
+select K 14
+rank F 735
+rank M 928
+select N 64
+rank K 350
+rank P 34
+rank A 459
+rank G 611
+rank K 751
+access 513
+rank I 77
+select A 4
+rank J 715
+access 651
+select I 13
+rank I 321
+rank B 520
+select I 62
+select C 31
+access 931
+rank P 299
+access 994
+select A 54
+rank L 107
+access 496
+rank K 92
+rank O 250
+rank M 891
+select A 11
+select A 35
+access 9
+select B 53
+rank E 583
+rank D 976
+select N 67
+access 399
+access 586
+rank K 114
+rank E 268
+select P 11
+select E 7
+select I 68
+rank D 217
+access 632
+access 348
+access 562
+select B 9
+access 275
+select C 27
+rank G 498
+select M 35
+rank D 965
+access 172
+rank P 896
+access 984
+access 325
+rank A 478
+select C 24
+select O 16
+select F 21
+rank H 553
+select N 26
+select O 12
+access 744
+select D 30
+access 970
+rank F 838
+select I 11
+access 422
+rank P 155
+access 684
+rank L 856
+select K 62
+access 218
+select K 57
+rank F 433
+select C 50
+access 710
+select J 1
+access 547
+rank G 397
+access 597
+select M 27
+access 314
+rank K 765
+select C 56
+access 925
+access 51
+rank M 826
+select E 41
+rank J 24
+access 228
+access 26
+access 952
+select K 2
+select L 44
+rank N 412
+access 256
+select E 44
+rank L 800
+access 728
+select J 18
+access 289
+STAT
+MEM
+EXIT

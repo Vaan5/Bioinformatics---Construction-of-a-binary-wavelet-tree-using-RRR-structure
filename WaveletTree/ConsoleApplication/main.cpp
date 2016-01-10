@@ -4,6 +4,7 @@
 #include "../WaveletTree/WaveletTree.h"
 #include <cstdint>
 #include <fstream>
+#include <ostream>
 #include <sstream>
 #include <string>
 #include <chrono>
@@ -124,12 +125,12 @@ void openImage(char* fileName) {
 int main(int argc, char** argv) {
 	// check arguments
 	if (argc > 4 || argc < 2) {
-		fprintf(stderr, "Invalid number of arguments. Usage example: %s file [gt] [outputFile] [ < config]\n", argv[0]);
+		fprintf(stderr, "Invalid number of arguments. Usage example: %s file [gt] [outputFile] [ < commands]\n", argv[0]);
 		fprintf(stderr, "file -> FASTA input file\n");
 		fprintf(stderr, "g -> graphical display\n");
 		fprintf(stderr, "t -> time statistics\n");
 		fprintf(stderr, "outputFile -> file in which operation output is being written\n");
-		fprintf(stderr, "config -> file containing test operations\n");
+		fprintf(stderr, "commands -> file containing test operations\n");
 		exit(1);
 	}
 
@@ -143,14 +144,10 @@ int main(int argc, char** argv) {
 	}
 
 	// open file in which operation outputs will be written
-	std::streambuf* buf = cout.rdbuf();
+	ofstream out;
 	if (argc == 4) {
-		ofstream output(argv[3]);
-		if (output.is_open()) {
-			buf = output.rdbuf();
-		}
+		out.open(argv[3]);
 	}
-	ostream out(buf);
 
 	// Load FASTA file
 	printf("Loading file %s\n", inputFile);
@@ -239,7 +236,10 @@ int main(int argc, char** argv) {
 				startTime = high_resolution_clock::now();
 				result = tree.rank(character, index);
 				endTime = high_resolution_clock::now();
-				out << result << endl;
+				if (argc == 4)
+					out << result << endl;
+				else
+					cout << result << endl;
 			}
 			else if (operation == "select") {
 				currentTimeVector = &selectTimes;
@@ -253,7 +253,10 @@ int main(int argc, char** argv) {
 				startTime = high_resolution_clock::now();
 				result = tree.select(character, count);
 				endTime = high_resolution_clock::now();
-				out << result << endl;
+				if (argc == 4)
+					out << result << endl;
+				else
+					cout << result << endl;
 			}
 			else if (operation == "access") {
 				currentTimeVector = &accessTimes;
@@ -265,7 +268,10 @@ int main(int argc, char** argv) {
 				startTime = high_resolution_clock::now();
 				result = tree.access(index);
 				endTime = high_resolution_clock::now();
-				out << (char)result << endl;
+				if (argc == 4)
+					out << (char)result << endl;
+				else
+					cout << (char)result << endl;
 			}
 			else if (operation == "EXIT") {
 				break;

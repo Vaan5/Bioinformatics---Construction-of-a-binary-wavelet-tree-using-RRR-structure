@@ -1,0 +1,514 @@
+MEM
+select T 8
+rank C 985
+rank C 115
+select A 244
+select C 39
+select C 138
+rank N 731
+rank C 755
+rank C 491
+rank C 775
+rank A 36
+select A 34
+select C 43
+select G 66
+access 541
+select T 213
+rank G 682
+select C 103
+access 79
+access 571
+select T 49
+access 279
+access 665
+access 831
+access 113
+select A 142
+access 743
+select G 116
+rank T 20
+rank G 185
+access 879
+select A 316
+select G 176
+rank C 868
+access 311
+rank T 298
+access 909
+select G 68
+rank N 534
+select C 43
+select A 286
+rank C 470
+rank G 180
+rank G 439
+access 751
+rank N 563
+access 334
+select G 3
+rank N 818
+rank G 225
+access 509
+rank T 254
+select G 54
+rank A 979
+access 10
+select A 293
+rank N 527
+rank N 892
+rank G 239
+rank T 208
+select C 43
+access 548
+select G 31
+access 781
+access 396
+access 185
+access 338
+select G 12
+access 236
+select A 62
+select N 111
+select T 88
+access 598
+select A 232
+rank A 882
+rank A 646
+access 994
+access 83
+access 676
+access 975
+rank A 136
+select C 30
+select G 148
+rank N 728
+access 290
+rank T 966
+access 729
+rank C 502
+select N 76
+access 738
+select C 130
+select G 67
+select G 4
+select A 25
+select T 34
+rank N 744
+select N 111
+select N 111
+rank C 843
+select A 252
+access 260
+access 140
+rank N 545
+select A 214
+access 624
+select C 11
+select A 54
+access 469
+select T 23
+select T 210
+rank T 558
+access 887
+access 554
+access 115
+select C 11
+select C 29
+access 16
+access 206
+select G 103
+access 372
+access 731
+access 639
+select C 39
+rank A 10
+access 683
+rank G 8
+select A 39
+access 531
+select N 111
+select N 111
+rank T 830
+rank T 302
+rank G 134
+rank T 406
+rank G 585
+rank C 242
+select G 67
+select T 192
+select A 323
+access 410
+select T 69
+access 814
+select C 31
+select A 181
+rank T 219
+rank G 433
+rank G 314
+access 746
+select C 125
+select G 64
+rank N 337
+select G 2
+rank N 850
+rank A 912
+select G 21
+select C 15
+rank A 179
+rank T 573
+select G 176
+select T 20
+access 912
+select G 86
+select N 111
+access 181
+rank T 58
+select G 37
+rank T 168
+rank A 541
+rank N 707
+rank G 793
+select C 28
+access 634
+rank G 413
+select G 150
+rank C 98
+select C 43
+rank T 798
+select N 111
+select G 88
+select C 33
+rank A 994
+access 92
+select G 74
+access 863
+access 928
+select G 67
+select N 111
+access 36
+select N 111
+rank N 862
+access 809
+select T 134
+select T 168
+select C 2
+rank T 723
+access 448
+select N 111
+select A 105
+rank A 0
+access 893
+select T 117
+rank N 687
+rank N 900
+select T 73
+rank C 232
+access 191
+select C 73
+select G 47
+rank N 459
+select A 22
+rank C 812
+select A 208
+select G 41
+rank C 515
+rank N 451
+access 265
+access 57
+access 403
+rank A 639
+select A 105
+rank A 284
+access 516
+select T 184
+rank A 88
+rank A 899
+access 778
+rank C 198
+select T 81
+access 159
+rank A 316
+rank A 760
+select C 27
+select C 104
+select T 73
+rank T 127
+select C 43
+access 869
+access 957
+access 815
+rank C 383
+access 220
+select A 216
+select T 73
+rank A 887
+access 418
+access 230
+rank N 601
+rank N 290
+rank A 660
+select T 215
+access 581
+rank C 390
+access 359
+access 343
+select N 111
+rank G 484
+rank N 369
+access 226
+access 67
+select C 80
+access 44
+access 450
+access 346
+rank C 158
+select T 39
+access 618
+rank A 388
+access 300
+select G 97
+select G 81
+select N 58
+rank N 521
+access 146
+select A 43
+access 881
+select A 335
+select C 22
+rank N 348
+rank A 509
+select G 83
+access 173
+rank T 923
+rank C 857
+rank T 487
+access 442
+select G 99
+rank C 160
+rank G 308
+rank G 72
+access 564
+access 790
+rank A 719
+access 387
+select C 56
+access 980
+rank C 514
+select C 92
+rank N 634
+access 766
+rank G 444
+rank T 553
+select T 73
+select C 116
+select C 91
+access 483
+rank T 354
+access 138
+access 88
+access 328
+rank N 659
+rank T 172
+access 839
+select T 117
+access 941
+access 196
+rank T 100
+access 827
+rank N 612
+select G 140
+access 612
+rank A 255
+rank G 193
+rank C 785
+select A 27
+access 435
+rank T 849
+rank A 535
+access 273
+access 247
+select T 73
+rank T 784
+select C 11
+select N 111
+select N 111
+select A 124
+access 538
+rank A 363
+select C 43
+rank A 262
+rank G 48
+access 578
+access 390
+select T 167
+rank C 113
+rank A 754
+access 935
+select G 182
+select G 61
+select G 140
+access 297
+select C 43
+select G 169
+access 691
+access 46
+access 124
+access 845
+access 128
+select C 22
+access 685
+access 25
+access 711
+select A 162
+select G 85
+rank C 81
+access 755
+access 988
+access 486
+rank T 710
+select N 111
+rank C 947
+access 212
+rank C 666
+access 470
+access 856
+rank T 475
+rank G 142
+access 462
+select T 183
+rank T 78
+select G 147
+access 761
+select G 67
+rank C 466
+select N 111
+select A 158
+access 63
+rank N 941
+access 321
+rank A 424
+rank N 403
+select C 77
+access 478
+select A 91
+rank G 803
+rank T 982
+rank C 220
+access 422
+rank N 576
+rank C 417
+access 525
+access 53
+access 521
+access 724
+rank C 909
+select G 25
+access 201
+access 280
+select N 45
+rank T 212
+select A 105
+select C 43
+access 494
+select C 95
+select C 121
+select N 111
+access 380
+select T 86
+select N 111
+access 589
+select A 243
+rank G 17
+access 456
+access 258
+rank G 68
+select N 111
+select N 111
+select C 30
+rank N 616
+select T 73
+select A 203
+rank T 276
+access 243
+rank C 324
+rank C 591
+access 871
+access 569
+access 559
+access 134
+select N 111
+rank G 286
+access 628
+select A 170
+select A 340
+access 696
+select G 137
+select T 73
+select C 2
+rank A 916
+access 5
+select G 140
+rank N 767
+access 963
+rank G 973
+select N 111
+rank N 464
+access 801
+select A 310
+select T 77
+select G 57
+rank C 41
+rank N 651
+rank G 445
+rank C 93
+access 178
+rank C 738
+access 23
+access 933
+rank C 269
+select C 90
+rank C 154
+access 305
+access 167
+rank A 809
+rank N 824
+rank A 835
+rank C 356
+rank G 825
+rank A 963
+access 896
+rank T 673
+access 151
+select N 111
+rank N 699
+rank N 629
+access 498
+rank N 624
+select A 218
+access 97
+access 922
+rank G 932
+access 501
+access 360
+rank N 873
+rank A 202
+rank C 25
+rank T 879
+select C 119
+rank G 397
+access 285
+select T 79
+select T 88
+access 840
+select T 154
+rank G 149
+access 705
+select G 78
+access 514
+access 426
+access 671
+select A 296
+STAT
+MEM
+EXIT

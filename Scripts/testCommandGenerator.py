@@ -24,7 +24,7 @@ with open(fastaFile, "r") as f:
 	content = ""
 	for line in f.readlines():
 		line = line.strip()
-		if line[0] == '>':
+		if len(line) == 0 or line[0] == '>':
 			continue
 		content += line
 
@@ -61,9 +61,11 @@ zipped = zip(tests, results)
 random.shuffle(zipped)
 
 with open(testOutput, "w") as output:
+	output.write("MEM\n")
 	with open(resultOutputs, "w") as res:
 		for (t,r) in zipped:
 			output.write(t + "\n")
 			res.write(r + "\n")
 	output.write("STAT\n")
+	output.write("MEM\n")
 	output.write("EXIT\n")

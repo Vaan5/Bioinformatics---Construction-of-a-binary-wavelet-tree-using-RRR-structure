@@ -1,0 +1,40 @@
+MEM
+access 12
+access 20
+access 25
+rank C 32
+select M 1
+select Z 4
+access 68
+access 41
+access 63
+select F 1
+access 96
+access 32
+rank Y 93
+select Y 2
+select G 2
+select T 1
+rank F 5
+select M 1
+select N 1
+rank C 80
+rank J 17
+select V 6
+access 74
+access 85
+access 90
+rank F 70
+rank F 45
+rank U 10
+rank K 26
+select F 4
+rank X 72
+access 54
+select \ 1
+select B 7
+rank B 54
+access 2
+STAT
+MEM
+EXIT

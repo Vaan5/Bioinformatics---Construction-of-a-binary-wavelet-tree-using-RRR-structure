@@ -1,0 +1,915 @@
+MEM
+access 9648
+access 8692
+rank B 6956
+rank D 1122
+select C 471
+select A 2510
+rank D 6089
+select C 1396
+select D 119
+select A 294
+select A 2060
+access 9123
+access 4468
+select C 1338
+rank A 6682
+select C 1754
+select A 1308
+select A 701
+select D 2257
+select C 2502
+rank B 1429
+rank B 1331
+rank C 6125
+rank D 7021
+access 296
+rank B 3760
+select A 585
+access 5812
+access 5260
+rank C 6202
+rank D 3524
+access 4899
+select B 511
+rank D 6221
+access 750
+select C 1675
+access 4496
+rank A 6852
+select D 1782
+select A 508
+access 9432
+rank C 8276
+access 3379
+rank C 3334
+rank B 8595
+rank D 1837
+rank B 5887
+select A 1542
+rank C 506
+access 9310
+rank B 2447
+access 870
+rank D 5392
+access 1496
+access 4361
+access 7653
+access 6135
+access 9600
+access 2422
+select B 259
+rank A 3051
+select D 715
+select D 1222
+select C 1704
+select C 159
+access 2830
+select A 2167
+select C 82
+rank C 2338
+rank C 9810
+access 7589
+rank B 1373
+access 1191
+select C 1318
+rank B 7494
+select A 2289
+select B 24
+access 2720
+select A 1040
+access 8096
+rank B 8374
+rank C 8107
+rank A 2198
+rank B 8337
+select B 1284
+select A 884
+access 3536
+rank A 395
+select A 909
+rank C 6076
+rank B 1
+rank C 9159
+access 8274
+rank C 3649
+access 9094
+access 956
+access 3163
+rank D 4925
+rank B 771
+select A 863
+access 7296
+access 2301
+select A 1137
+access 4828
+access 7370
+select C 353
+access 1125
+access 2595
+access 9699
+rank A 5513
+select D 867
+rank B 8451
+rank D 7618
+select A 2251
+select C 211
+access 2464
+access 849
+rank C 3513
+access 4040
+rank C 1535
+select D 2111
+rank D 180
+rank C 3846
+rank B 7457
+access 1769
+rank D 5588
+select C 386
+rank C 7995
+select B 1537
+rank C 4103
+select A 2339
+access 3125
+rank D 7068
+select B 1368
+rank B 563
+rank D 5710
+rank A 8868
+rank C 1737
+access 3564
+select A 521
+rank B 1582
+access 6898
+rank A 3999
+rank C 3805
+access 2712
+select D 904
+rank C 5328
+select A 993
+select B 174
+rank B 6321
+access 1758
+access 6994
+access 5325
+select C 1946
+access 3097
+rank A 5605
+rank B 5788
+select C 1803
+access 9778
+rank B 9646
+rank B 6754
+access 4687
+rank C 6632
+access 7621
+select C 1346
+rank D 9526
+access 3885
+select D 793
+access 4408
+access 6831
+rank A 9194
+rank B 3184
+access 7236
+rank A 8005
+access 1524
+select C 1986
+rank D 611
+access 4980
+access 3235
+access 6701
+rank B 8686
+access 3982
+select D 1752
+select A 442
+access 5504
+select A 2092
+rank D 7669
+select C 1105
+rank A 8669
+rank A 3362
+rank D 4970
+access 3282
+select C 1461
+access 8017
+select C 411
+access 3336
+rank B 5258
+rank C 6349
+access 5778
+access 4239
+access 1343
+access 2928
+select C 1096
+access 9563
+select A 1539
+access 2539
+access 6213
+select B 2205
+select A 1387
+select D 1218
+rank A 1443
+access 1375
+rank A 2308
+rank D 2051
+access 5464
+access 6034
+rank B 2258
+rank D 1624
+select D 1163
+rank D 5752
+select A 251
+access 8799
+rank A 4428
+select D 521
+access 8756
+rank D 6290
+access 2865
+rank C 4181
+select B 276
+select C 677
+access 3690
+access 5413
+select B 323
+access 5035
+rank B 7927
+select A 2157
+access 330
+select B 1179
+select D 1073
+access 4336
+select D 1730
+access 5900
+access 2663
+access 7573
+select A 2195
+access 1181
+rank D 6558
+select C 34
+access 6582
+rank D 2915
+select C 726
+access 6796
+rank A 716
+access 6946
+rank C 9349
+access 2145
+select B 366
+access 1026
+access 8427
+access 6379
+rank A 4001
+rank A 6493
+access 5480
+rank C 657
+rank C 1925
+rank C 3305
+select B 910
+rank D 8075
+rank A 4686
+select D 1450
+access 6302
+access 9005
+rank D 3115
+select C 1387
+access 9458
+access 7483
+select C 1556
+access 3444
+rank A 8709
+rank D 8500
+access 7833
+access 6643
+rank B 9851
+access 7038
+access 2804
+access 3322
+access 245
+select D 1275
+select D 1388
+select B 612
+access 1683
+access 7990
+rank A 5119
+select A 2447
+access 8865
+select D 2290
+rank A 2970
+select A 1683
+rank B 4769
+access 5673
+rank C 2285
+access 7797
+rank C 7589
+access 4714
+rank B 8955
+select B 1012
+select B 694
+rank A 2719
+select C 197
+rank D 6524
+select A 438
+access 2390
+access 7077
+access 8846
+select A 2053
+rank B 9019
+rank C 5199
+rank B 8825
+access 1267
+rank C 1653
+select C 814
+access 6096
+rank A 2766
+rank B 9064
+access 2443
+select A 30
+access 3842
+select D 62
+rank C 879
+rank B 5301
+rank C 2561
+select D 201
+select B 1328
+rank C 991
+rank C 3913
+select D 1711
+select B 1053
+select B 2312
+select B 435
+access 6555
+rank A 3278
+select B 2213
+select A 882
+select C 1247
+access 687
+access 9072
+access 6661
+select D 1534
+access 1393
+access 3181
+rank C 324
+access 9369
+rank A 3089
+rank A 7847
+access 4609
+select D 2225
+rank C 4380
+access 6154
+select A 564
+select B 1260
+select D 79
+select D 338
+rank C 1966
+select B 856
+select B 2291
+access 6863
+rank A 4343
+access 4572
+rank B 7548
+rank D 4723
+access 500
+select A 1158
+select D 619
+select A 936
+access 2319
+select A 2003
+access 2765
+select A 964
+access 9751
+access 7122
+rank C 2493
+select A 152
+select C 123
+access 7948
+select D 823
+access 3665
+rank C 72
+select C 714
+rank D 9247
+select C 827
+rank A 5645
+select B 1471
+rank B 352
+rank B 3600
+access 2224
+select A 1577
+rank C 2874
+select C 639
+select C 2104
+rank D 1008
+access 6202
+rank A 1782
+select B 2028
+access 6072
+rank B 1890
+select C 473
+select A 233
+rank A 4032
+select B 2372
+select C 792
+rank D 9554
+access 6438
+rank A 3833
+select D 100
+access 8800
+select B 1425
+rank B 2508
+rank B 9403
+access 4199
+select A 2440
+access 9572
+access 5295
+rank D 9894
+access 4260
+access 8380
+select B 1905
+rank C 9947
+access 7182
+rank A 9987
+rank D 7580
+rank B 2034
+access 1882
+access 6782
+access 2108
+access 713
+select B 1964
+rank B 4406
+rank A 5691
+select B 335
+select A 2015
+select A 1552
+rank A 1117
+rank B 6835
+access 6936
+access 2060
+rank B 3557
+rank A 6417
+select D 291
+access 8474
+access 2260
+select D 2337
+select B 1809
+rank B 9691
+access 3824
+access 514
+select D 13
+access 1954
+rank B 8386
+select D 130
+select D 1017
+rank C 7824
+rank B 5459
+select D 896
+rank A 7891
+select C 1664
+select C 779
+rank C 5065
+select A 1004
+select C 274
+rank B 3641
+access 8709
+select A 2170
+select C 1909
+rank A 4603
+access 2348
+select D 1386
+rank B 6573
+access 1411
+select A 628
+rank A 4250
+access 8089
+select A 1406
+select A 1676
+access 1450
+select C 1331
+rank C 7296
+access 2033
+rank A 7791
+rank C 6005
+rank A 9127
+access 471
+rank B 7358
+rank B 7725
+rank A 4622
+access 5729
+rank A 6934
+access 6477
+access 5850
+access 4104
+access 3751
+select C 434
+select D 191
+select D 701
+rank A 8192
+rank C 6614
+rank D 8520
+rank B 2528
+rank A 7421
+select B 1444
+access 4956
+access 9855
+rank D 851
+access 795
+select B 2024
+rank A 1193
+access 1815
+select B 1762
+select C 1694
+rank D 58
+select C 2049
+rank D 3206
+rank B 9052
+access 2510
+select D 157
+select D 2211
+select A 2100
+select D 2010
+rank B 4841
+select B 1872
+select D 694
+rank B 4278
+rank C 6724
+select D 80
+access 6734
+select D 168
+select C 1924
+select C 112
+access 5105
+access 98
+select B 6
+access 4877
+rank B 8572
+rank A 8799
+rank A 6694
+select B 808
+select D 1911
+select B 1224
+select D 661
+access 407
+select A 1841
+rank A 8628
+rank B 7680
+rank C 956
+access 4186
+select A 683
+rank B 9754
+rank B 8968
+access 7157
+select D 2032
+access 2954
+select B 1113
+access 2640
+access 9261
+rank D 2639
+rank D 8180
+rank D 2817
+rank B 1217
+rank B 5425
+access 3643
+access 9955
+access 4849
+select C 1445
+rank C 1070
+access 206
+select C 1405
+select A 1642
+select D 1586
+access 9320
+select C 2538
+select C 1184
+access 4668
+access 5211
+select A 2343
+access 438
+rank A 285
+rank A 5915
+select A 2067
+rank B 4824
+select B 802
+select A 1979
+access 8517
+access 8128
+access 5020
+select C 924
+rank C 3719
+access 1081
+select D 1760
+access 2881
+access 585
+access 7927
+select D 2150
+access 283
+access 659
+access 1234
+rank B 4750
+rank D 7240
+access 8955
+select A 2201
+rank C 6460
+access 8544
+access 4147
+rank D 4206
+select D 1472
+rank A 1878
+access 3422
+select A 1623
+access 3484
+select C 2553
+select C 1807
+select B 1927
+access 8415
+access 2997
+access 4770
+select B 118
+access 5146
+rank B 5047
+rank B 471
+access 3064
+rank A 7755
+access 8049
+rank A 9419
+access 6509
+rank D 2086
+select C 1888
+access 7770
+rank B 3253
+rank A 605
+select B 1947
+select A 277
+access 5867
+access 1932
+access 7491
+rank B 2223
+select C 1765
+access 9860
+select A 247
+rank D 3682
+rank C 3872
+select A 1037
+select C 1594
+rank A 7102
+rank C 5962
+access 1000
+rank D 3448
+rank B 1543
+access 7282
+access 9188
+rank A 808
+access 620
+access 5228
+select C 2437
+select D 1437
+select A 1807
+select C 1052
+access 7686
+access 8502
+access 5610
+rank A 1300
+access 9166
+rank B 7198
+access 4317
+access 8978
+select D 1992
+rank A 920
+rank B 2114
+select A 1964
+select A 245
+select A 1292
+select B 1887
+rank C 8154
+rank C 4895
+access 9918
+access 8255
+rank C 6247
+rank B 3407
+access 6011
+rank A 5841
+select A 595
+rank D 2902
+select C 539
+access 899
+rank A 8059
+rank B 4141
+select B 1072
+select C 2325
+select C 787
+rank B 1995
+rank C 9251
+access 1284
+rank D 2593
+rank D 3944
+rank C 9586
+access 6262
+select C 2431
+access 5075
+access 3213
+access 3019
+select C 609
+select C 1207
+select A 1264
+access 3785
+rank C 3157
+select B 2103
+select B 2259
+rank D 9611
+select B 436
+access 7223
+select D 1944
+rank B 1049
+rank C 9110
+rank A 2740
+access 8348
+access 5936
+access 7894
+access 27
+select D 2190
+access 9816
+select A 1816
+select D 367
+select B 1187
+access 4534
+select D 172
+select C 1083
+rank A 6903
+access 1119
+select A 2209
+select C 2531
+select D 2230
+access 149
+access 3720
+select C 1157
+select C 2030
+access 5344
+rank C 9701
+rank C 4295
+access 823
+select B 891
+select A 1749
+select A 36
+rank C 7364
+rank A 1493
+rank C 4538
+select A 475
+access 5649
+select C 1526
+select B 394
+select A 2370
+select D 2258
+rank C 9885
+access 5964
+access 1847
+access 7058
+select C 1657
+rank A 8311
+select D 1528
+rank A 2174
+access 2007
+select B 528
+select A 1025
+rank A 2371
+access 9521
+access 4592
+access 9940
+rank B 4492
+select B 1730
+select A 1078
+rank C 5021
+rank A 5806
+access 4073
+access 4024
+access 6317
+rank B 1159
+select B 1784
+access 8210
+access 8925
+select B 2164
+select B 1437
+rank C 6983
+rank A 6369
+select B 1644
+rank C 5354
+select C 2187
+access 7419
+rank A 5482
+rank D 3035
+rank C 8922
+access 5173
+select B 1785
+select B 2465
+rank C 1680
+select D 1056
+access 969
+access 8176
+access 5544
+select D 2345
+select C 693
+access 6344
+select A 1610
+access 9394
+rank D 6043
+access 2577
+access 74
+select A 1239
+select A 2110
+select D 50
+access 5402
+rank B 6790
+access 5718
+select B 492
+select B 2471
+rank A 5236
+select C 511
+select C 1442
+access 1549
+rank C 6162
+rank D 5151
+rank A 3474
+select D 1641
+select D 297
+access 7439
+access 179
+access 7727
+select C 587
+access 8604
+rank D 5553
+rank D 2980
+select C 1023
+rank D 8853
+rank A 8759
+access 1708
+rank B 5928
+rank D 8446
+select A 729
+access 372
+select D 2292
+select B 447
+select B 965
+rank A 4069
+select B 567
+access 4757
+select B 736
+rank A 7434
+access 8647
+select C 904
+access 4446
+rank C 2683
+rank B 7209
+access 8288
+rank D 7128
+select C 1469
+access 6617
+rank B 4562
+rank C 115
+access 2130
+rank B 536
+access 8632
+select B 581
+select C 1998
+rank D 9467
+access 9224
+rank B 9967
+rank B 238
+access 7866
+rank A 9341
+rank B 8235
+rank B 7947
+select B 1205
+access 9494
+select C 65
+access 5590
+rank D 9486
+access 3932
+rank D 300
+select D 590
+select C 2543
+access 3599
+rank D 9283
+access 3495
+rank D 1264
+select B 1979
+rank D 428
+select C 375
+select B 991
+rank C 4950
+rank B 2405
+select B 1165
+access 7346
+select B 1243
+rank A 1797
+access 1661
+rank A 2791
+select A 2132
+select B 1428
+select D 2246
+rank C 758
+access 47
+rank C 7292
+rank C 200
+select C 2290
+rank D 9788
+access 6418
+STAT
+MEM
+EXIT

@@ -1,0 +1,179 @@
+MEM
+select A 224
+select D 47
+access 124
+access 766
+select A 163
+access 311
+rank B 248
+rank C 315
+rank B 111
+select D 30
+access 713
+select D 184
+rank D 933
+access 488
+access 682
+access 809
+select D 209
+access 671
+rank C 482
+select B 181
+rank C 156
+select D 8
+rank A 723
+select D 92
+access 353
+rank A 194
+select B 89
+select B 195
+access 559
+select C 13
+access 439
+select A 158
+rank C 293
+rank D 220
+access 243
+rank C 384
+access 462
+select C 135
+access 146
+access 852
+rank C 445
+rank A 347
+select B 47
+select C 4
+access 190
+access 25
+access 345
+rank D 803
+access 215
+select C 180
+rank B 712
+rank D 515
+rank A 896
+select B 26
+access 742
+access 837
+select A 176
+rank B 54
+select B 149
+rank A 83
+select C 106
+select D 44
+access 57
+rank D 420
+select D 63
+rank D 863
+access 140
+access 974
+rank D 38
+access 479
+access 561
+rank B 882
+access 631
+rank C 29
+rank D 596
+select A 79
+rank D 225
+rank A 8
+rank C 691
+rank B 509
+select D 139
+select C 99
+select B 51
+select A 21
+select C 244
+access 645
+rank D 784
+access 798
+access 34
+rank A 564
+rank B 542
+select D 69
+rank D 613
+access 264
+select A 238
+select A 150
+select B 110
+access 110
+select D 128
+select D 96
+access 826
+rank B 118
+rank B 757
+access 579
+rank A 71
+access 612
+rank A 334
+select D 36
+select A 219
+access 86
+select D 26
+rank A 674
+rank B 555
+rank D 625
+select C 96
+access 418
+rank A 778
+access 984
+select C 228
+rank C 364
+access 200
+select C 230
+select D 197
+select B 82
+access 998
+access 77
+access 542
+select D 182
+access 330
+rank C 383
+rank B 946
+select C 235
+access 920
+select D 129
+rank D 999
+access 3
+rank C 845
+rank B 962
+access 910
+rank A 579
+rank A 271
+access 720
+access 596
+access 231
+access 935
+select B 106
+rank C 736
+rank D 981
+select D 75
+select B 153
+rank B 141
+access 957
+select B 192
+access 866
+rank C 874
+select A 119
+rank A 647
+select A 80
+access 893
+select B 187
+access 277
+select C 240
+access 403
+access 300
+access 512
+select A 229
+rank A 414
+rank B 275
+access 378
+rank D 656
+rank A 175
+access 778
+rank A 477
+rank B 185
+rank A 459
+STAT
+MEM
+EXIT
