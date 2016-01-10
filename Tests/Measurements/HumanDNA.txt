@@ -1,0 +1,25 @@
+Loading file Inputs/HumanDNA.txt
+File loaded
+Building Wavelet tree
+Memory before wavelet tree construction: 33.2461 MB
+Current memory usage: 67.3477 MB
+Actual memory usage: 34.1016 MB
+Done building tree - 600525 ms
+Input lines in format: operation params
+Parameters are delimited by space
+Possible formats are:
+	rank character index
+	select character count
+	access index
+Enter EXIT for application termination
+Enter STAT for time statistics
+Enter MEM for application memory usage
+Current memory usage: 67.3477 MB
+Actual memory usage: 34.1016 MB
+Average rank time for 6707 queries: 0 ms (3 us)
+Average select time for 6706 queries: 0 ms (6 us)
+Average access time for 6707 queries: 0 ms (6 us)
+Current memory usage: 67.3555 MB
+Actual memory usage: 34.1094 MB
+Current memory usage: 67.3906 MB
+Actual memory usage: 34.1445 MB

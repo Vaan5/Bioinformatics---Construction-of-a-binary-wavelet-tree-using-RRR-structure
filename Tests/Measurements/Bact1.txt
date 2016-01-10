@@ -1,0 +1,25 @@
+Loading file Inputs/Bact1.txt
+File loaded
+Building Wavelet tree
+Memory before wavelet tree construction: 2.76562 MB
+Current memory usage: 9.74609 MB
+Actual memory usage: 6.98047 MB
+Done building tree - 12679 ms
+Input lines in format: operation params
+Parameters are delimited by space
+Possible formats are:
+	rank character index
+	select character count
+	access index
+Enter EXIT for application termination
+Enter STAT for time statistics
+Enter MEM for application memory usage
+Current memory usage: 9.90625 MB
+Actual memory usage: 7.14062 MB
+Average rank time for 15700 queries: 0 ms (2 us)
+Average select time for 15721 queries: 0 ms (4 us)
+Average access time for 15727 queries: 0 ms (4 us)
+Current memory usage: 9.91406 MB
+Actual memory usage: 7.14844 MB
+Current memory usage: 9.94922 MB
+Actual memory usage: 7.18359 MB
