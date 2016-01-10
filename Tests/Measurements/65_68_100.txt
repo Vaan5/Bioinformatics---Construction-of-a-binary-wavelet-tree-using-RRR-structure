@@ -14,12 +14,12 @@ Possible formats are:
 Enter EXIT for application termination
 Enter STAT for time statistics
 Enter MEM for application memory usage
-Current memory usage: 1.40625 MB
-Actual memory usage: 0.207031 MB
+Current memory usage: 1.41016 MB
+Actual memory usage: 0.210938 MB
 Average rank time for 10 queries: 0 ms (2 us)
 Average select time for 12 queries: 0 ms (3 us)
 Average access time for 10 queries: 0 ms (2 us)
-Current memory usage: 1.41406 MB
-Actual memory usage: 0.214844 MB
-Current memory usage: 1.44922 MB
-Actual memory usage: 0.25 MB
+Current memory usage: 1.41797 MB
+Actual memory usage: 0.21875 MB
+Current memory usage: 1.45312 MB
+Actual memory usage: 0.253906 MB

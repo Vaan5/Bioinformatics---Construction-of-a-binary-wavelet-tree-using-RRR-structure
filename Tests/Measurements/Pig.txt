@@ -2,9 +2,9 @@ Loading file Inputs/Pig.txt
 File loaded
 Building Wavelet tree
 Memory before wavelet tree construction: 2.8125 MB
-Current memory usage: 14.082 MB
-Actual memory usage: 11.2695 MB
-Done building tree - 9275 ms
+Current memory usage: 11.5977 MB
+Actual memory usage: 8.78516 MB
+Done building tree - 9022 ms
 Input lines in format: operation params
 Parameters are delimited by space
 Possible formats are:
@@ -14,12 +14,12 @@ Possible formats are:
 Enter EXIT for application termination
 Enter STAT for time statistics
 Enter MEM for application memory usage
-Current memory usage: 14.2656 MB
-Actual memory usage: 11.4531 MB
-Average rank time for 16189 queries: 0 ms (2 us)
-Average select time for 16223 queries: 0 ms (6 us)
+Current memory usage: 11.7578 MB
+Actual memory usage: 8.94531 MB
+Average rank time for 16189 queries: 0 ms (3 us)
+Average select time for 16223 queries: 0 ms (7 us)
 Average access time for 16204 queries: 0 ms (5 us)
-Current memory usage: 14.2773 MB
-Actual memory usage: 11.4648 MB
-Current memory usage: 14.3125 MB
-Actual memory usage: 11.5 MB
+Current memory usage: 11.7656 MB
+Actual memory usage: 8.95312 MB
+Current memory usage: 11.8008 MB
+Actual memory usage: 8.98828 MB

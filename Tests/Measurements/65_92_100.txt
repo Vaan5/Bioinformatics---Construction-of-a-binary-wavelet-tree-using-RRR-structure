@@ -18,7 +18,7 @@ Current memory usage: 1.41016 MB
 Actual memory usage: 0.210938 MB
 Average rank time for 11 queries: 0 ms (2 us)
 Average select time for 12 queries: 0 ms (4 us)
-Average access time for 13 queries: 0 ms (5 us)
+Average access time for 13 queries: 0 ms (4 us)
 Current memory usage: 1.41797 MB
 Actual memory usage: 0.21875 MB
 Current memory usage: 1.45312 MB

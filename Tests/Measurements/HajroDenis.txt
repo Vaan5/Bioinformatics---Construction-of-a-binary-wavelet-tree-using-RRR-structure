@@ -17,8 +17,8 @@ Enter MEM for application memory usage
 Current memory usage: 1.40625 MB
 Actual memory usage: 0.203125 MB
 Average rank time for 7 queries: 0 ms (2 us)
-Average select time for 8 queries: 0 ms (4 us)
-Average access time for 8 queries: 0 ms (4 us)
+Average select time for 8 queries: 0 ms (5 us)
+Average access time for 8 queries: 0 ms (3 us)
 Current memory usage: 1.41406 MB
 Actual memory usage: 0.210938 MB
 Current memory usage: 1.45703 MB

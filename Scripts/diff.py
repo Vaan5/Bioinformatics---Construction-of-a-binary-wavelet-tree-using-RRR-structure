@@ -23,9 +23,9 @@ with open(sys.argv[1], "r") as pred:
 				if labels[i] == "\n":
 					continue
 				if labels[i] != predictions[i]:
-					print "{}\tGot {}\tShould have gotten {}".format(coms[i], predictions[i], labels[i])
+					print "{} - Got {}, Should have gotten {}".format(coms[i+1].replace('\n', ' '), predictions[i].replace('\n', ' '), labels[i].replace('\n', ' '))
 					errorCounter += 1
 				else:
 					correctCounter += 1
 
-print "Finished\nCorrect: {}\nIncorrect: {}".format(correctCounter, errorCounter)
+print "Finished file {}\nCorrect: {}\nIncorrect: {}".format(sys.argv[1], correctCounter, errorCounter)

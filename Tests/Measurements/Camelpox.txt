@@ -4,7 +4,7 @@ Building Wavelet tree
 Memory before wavelet tree construction: 1.44922 MB
 Current memory usage: 2.5 MB
 Actual memory usage: 1.05078 MB
-Done building tree - 601 ms
+Done building tree - 607 ms
 Input lines in format: operation params
 Parameters are delimited by space
 Possible formats are:
