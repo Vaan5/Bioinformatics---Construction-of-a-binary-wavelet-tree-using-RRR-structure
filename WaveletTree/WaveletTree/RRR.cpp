@@ -148,7 +148,7 @@ RRR::RRR(string &bits) {
 		}
 	}
 
-	this->maxIndexInLastContentElement = this->maxIndexInLastContentElement % 64;
+	this->maxIndexInLastContentElement = (this->maxIndexInLastContentElement - 1) % 64 + 1;
 }
 
 // Returns size of the bits vector used when constructing the RRR
