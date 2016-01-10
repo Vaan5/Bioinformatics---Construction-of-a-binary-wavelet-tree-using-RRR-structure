@@ -1,10 +1,10 @@
 Loading file Inputs/HIV.txt
 File loaded
 Building Wavelet tree
-Memory before wavelet tree construction: 1.19922 MB
+Memory before wavelet tree construction: 1.19531 MB
 Current memory usage: 1.27344 MB
-Actual memory usage: 0.0742188 MB
-Done building tree - 0 ms
+Actual memory usage: 0.078125 MB
+Done building tree - 0 ms (898 us)
 Input lines in format: operation params
 Parameters are delimited by space
 Possible formats are:
@@ -14,12 +14,12 @@ Possible formats are:
 Enter EXIT for application termination
 Enter STAT for time statistics
 Enter MEM for application memory usage
-Current memory usage: 1.41797 MB
-Actual memory usage: 0.21875 MB
-Average rank time for 171 queries: 0 ms (3 us)
-Average select time for 175 queries: 0 ms (13 us)
-Average access time for 164 queries: 0 ms (6 us)
-Current memory usage: 1.42578 MB
+Current memory usage: 1.42188 MB
 Actual memory usage: 0.226562 MB
-Current memory usage: 1.46484 MB
-Actual memory usage: 0.265625 MB
+Average rank time for 171 queries: 0 ms (2 us)
+Average select time for 175 queries: 0 ms (4 us)
+Average access time for 164 queries: 0 ms (3 us)
+Current memory usage: 1.42969 MB
+Actual memory usage: 0.234375 MB
+Current memory usage: 1.46875 MB
+Actual memory usage: 0.273438 MB

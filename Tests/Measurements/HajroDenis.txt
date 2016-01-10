@@ -1,10 +1,10 @@
 Loading file Inputs/HajroDenis.txt
 File loaded
 Building Wavelet tree
-Memory before wavelet tree construction: 1.20312 MB
-Current memory usage: 1.27344 MB
-Actual memory usage: 0.0703125 MB
-Done building tree - 0 ms
+Memory before wavelet tree construction: 1.19531 MB
+Current memory usage: 1.26953 MB
+Actual memory usage: 0.0742188 MB
+Done building tree - 0 ms (153 us)
 Input lines in format: operation params
 Parameters are delimited by space
 Possible formats are:
@@ -15,11 +15,11 @@ Enter EXIT for application termination
 Enter STAT for time statistics
 Enter MEM for application memory usage
 Current memory usage: 1.40625 MB
-Actual memory usage: 0.203125 MB
+Actual memory usage: 0.210938 MB
 Average rank time for 7 queries: 0 ms (2 us)
-Average select time for 8 queries: 0 ms (5 us)
+Average select time for 8 queries: 0 ms (4 us)
 Average access time for 8 queries: 0 ms (3 us)
 Current memory usage: 1.41406 MB
-Actual memory usage: 0.210938 MB
+Actual memory usage: 0.21875 MB
 Current memory usage: 1.45703 MB
-Actual memory usage: 0.253906 MB
+Actual memory usage: 0.261719 MB

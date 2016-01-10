@@ -28,4 +28,4 @@ with open(sys.argv[1], "r") as pred:
 				else:
 					correctCounter += 1
 
-print "Finished file {}\nCorrect: {}\nIncorrect: {}".format(sys.argv[1], correctCounter, errorCounter)
+print "[{}] Finished file {} - Correct: {}, Incorrect: {}".format(("OK" if (errorCounter == 0) else "FAIL"), sys.argv[1], correctCounter, errorCounter)

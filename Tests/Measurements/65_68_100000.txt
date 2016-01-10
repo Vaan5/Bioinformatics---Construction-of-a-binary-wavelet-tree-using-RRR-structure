@@ -2,9 +2,9 @@ Loading file Inputs/65_68_100000.txt
 File loaded
 Building Wavelet tree
 Memory before wavelet tree construction: 1.45312 MB
-Current memory usage: 1.98828 MB
-Actual memory usage: 0.535156 MB
-Done building tree - 373 ms
+Current memory usage: 1.99219 MB
+Actual memory usage: 0.539062 MB
+Done building tree - 373 ms (373619 us)
 Input lines in format: operation params
 Parameters are delimited by space
 Possible formats are:

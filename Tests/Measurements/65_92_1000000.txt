@@ -1,10 +1,10 @@
 Loading file Inputs/65_92_1000000.txt
 File loaded
 Building Wavelet tree
-Memory before wavelet tree construction: 2.21094 MB
-Current memory usage: 8.67578 MB
-Actual memory usage: 6.46484 MB
-Done building tree - 13166 ms
+Memory before wavelet tree construction: 2.20312 MB
+Current memory usage: 8.67188 MB
+Actual memory usage: 6.46875 MB
+Done building tree - 13194 ms (13194602 us)
 Input lines in format: operation params
 Parameters are delimited by space
 Possible formats are:
@@ -15,11 +15,11 @@ Enter EXIT for application termination
 Enter STAT for time statistics
 Enter MEM for application memory usage
 Current memory usage: 8.6875 MB
-Actual memory usage: 6.47656 MB
+Actual memory usage: 6.48438 MB
 Average rank time for 7729 queries: 0 ms (4 us)
-Average select time for 7746 queries: 0 ms (9 us)
+Average select time for 7746 queries: 0 ms (8 us)
 Average access time for 7749 queries: 0 ms (9 us)
 Current memory usage: 8.69531 MB
-Actual memory usage: 6.48438 MB
+Actual memory usage: 6.49219 MB
 Current memory usage: 8.78516 MB
-Actual memory usage: 6.57422 MB
+Actual memory usage: 6.58203 MB
