@@ -199,8 +199,8 @@ int main(int argc, char** argv) {
 
 	getAndPrintMemoryUsage(startMemory);
 
-	auto duration = duration_cast<milliseconds>(endTime - startTime).count();
-	printf("Done building tree - %ld ms\n", duration);
+	auto duration = duration_cast<microseconds>(endTime - startTime).count();
+	printf("Done building tree - %ld ms (%ld us)\n", duration / 1000, duration);
 
 	vector<uint64_t> accessTimes;
 	vector<uint64_t> rankTimes;

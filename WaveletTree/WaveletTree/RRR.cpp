@@ -128,6 +128,10 @@ RRR::RRR(string &bits) {
 						this->maxIndexInLastContentElement++;
 						alignValue++;
 						k++;
+						// If we had overlow, and we are at the end of block, wee need to add that block to content
+						if (((i + 1) == n && k == bitsForOffset - 1)) {
+							content.push_back(currentContentElement);
+						}
 					}
 				}
 			}
@@ -148,6 +152,9 @@ RRR::RRR(string &bits) {
 		}
 	}
 
+	if (this->maxIndexInLastContentElement == 129) {
+		int a = 22;
+	}
 	this->maxIndexInLastContentElement = (this->maxIndexInLastContentElement - 1) % 64 + 1;
 }
 
