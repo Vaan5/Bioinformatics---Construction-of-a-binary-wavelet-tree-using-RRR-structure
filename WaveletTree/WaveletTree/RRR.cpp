@@ -152,9 +152,6 @@ RRR::RRR(string &bits) {
 		}
 	}
 
-	if (this->maxIndexInLastContentElement == 129) {
-		int a = 22;
-	}
 	this->maxIndexInLastContentElement = (this->maxIndexInLastContentElement - 1) % 64 + 1;
 }
 
