@@ -1,0 +1,25 @@
+Loading file Inputs/Human200.txt
+File loaded
+Building Wavelet tree
+Memory before wavelet tree construction: 190.359 MB
+Current memory usage: 290.883 MB
+Actual memory usage: 100.523 MB
+Done building tree - 6050824 ms (6050824001 us)
+Input lines in format: operation params
+Parameters are delimited by space
+Possible formats are:
+	rank character index
+	select character count
+	access index
+Enter EXIT for application termination
+Enter STAT for time statistics
+Enter MEM for application memory usage
+Current memory usage: 290.883 MB
+Actual memory usage: 100.523 MB
+Average rank time for 19827 queries: 0 ms (3 us)
+Average select time for 19828 queries: 0 ms (936 us)
+Average access time for 19829 queries: 0 ms (7 us)
+Current memory usage: 290.891 MB
+Actual memory usage: 100.531 MB
+Current memory usage: 290.926 MB
+Actual memory usage: 100.566 MB

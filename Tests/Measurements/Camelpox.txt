@@ -4,7 +4,7 @@ Building Wavelet tree
 Memory before wavelet tree construction: 1.44531 MB
 Current memory usage: 2.5 MB
 Actual memory usage: 1.05469 MB
-Done building tree - 632 ms (632690 us)
+Done building tree - 641 ms (641798 us)
 Input lines in format: operation params
 Parameters are delimited by space
 Possible formats are:
@@ -14,12 +14,12 @@ Possible formats are:
 Enter EXIT for application termination
 Enter STAT for time statistics
 Enter MEM for application memory usage
-Current memory usage: 2.55859 MB
-Actual memory usage: 1.11328 MB
-Average rank time for 4031 queries: 0 ms (2 us)
-Average select time for 4036 queries: 0 ms (4 us)
-Average access time for 4034 queries: 0 ms (4 us)
-Current memory usage: 2.56641 MB
-Actual memory usage: 1.12109 MB
-Current memory usage: 2.66797 MB
-Actual memory usage: 1.22266 MB
+Current memory usage: 2.55469 MB
+Actual memory usage: 1.10938 MB
+Average rank time for 4031 queries: 0 ms (0 us)
+Average select time for 4036 queries: 0 ms (2 us)
+Average access time for 4034 queries: 0 ms (2 us)
+Current memory usage: 2.5625 MB
+Actual memory usage: 1.11719 MB
+Current memory usage: 2.66406 MB
+Actual memory usage: 1.21875 MB
