@@ -102,7 +102,7 @@ void openImage(char* fileName) {
 	#else
 		sprintf(buff, "\"\"%s\" -Tpng \"%s\" -o \"%s\"\"", getConfigValue("DOT_PATH").c_str(), fileName, pngName);
 	#endif
-	system(buff);
+	int rez = system(buff);
 	buff[0] = 0;
 	string imgViewer = getConfigValue("IMAGE_VIEWER");
 	if (imgViewer.length() == 0) {
@@ -119,7 +119,9 @@ void openImage(char* fileName) {
 			sprintf(buff, "\"\"%s\" \"%s\"\"", imgViewer.c_str(), pngName);
 		#endif
 	}
-	system(buff);
+	rez = system(buff);
+	// warning for return value eliminated
+	rez = rez;
 }
 
 int main(int argc, char** argv) {
