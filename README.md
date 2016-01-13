@@ -52,7 +52,11 @@ Library for the creation of binary wavelet trees based on RRR structure, created
 - Tests/Inputs/*
 
 This git repo contains only small test files.
-All test files are located in (including larger ones not uploaded to git repo).
+All test files are located (here) [http://1drv.ms/1JKOceX]
+(including larger ones not uploaded to git repo).
+
+All test files must have UNIX line ending ("\n")
+
 Tests/Tests/Commands contains command sequences
 Tests/Tests/Results contains desired outputs for each command
 Tests/Results should contain output from WaveletTreeBuild (outputFile)
